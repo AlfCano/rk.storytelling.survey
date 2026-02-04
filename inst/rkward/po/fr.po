@@ -1,0 +1,122 @@
+msgid ""
+msgstr ""
+"Language: fr\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Survey"
+msgstr "Enquêtes"
+
+msgid "Graphs"
+msgstr "Graphiques"
+
+msgid "Storytelling with Data"
+msgstr "Storytelling avec des Données"
+
+msgid "Survey Line Graph"
+msgstr "Graphique Linéaire (Enquête)"
+
+msgid "Survey Means Graph"
+msgstr "Graphique de Moyennes (Enquête)"
+
+msgid "Survey Bar Chart"
+msgstr "Graphique à Barres (Enquête)"
+
+msgid "Big Number Summary"
+msgstr "Résumé à Grands Chiffres"
+
+msgid "Data"
+msgstr "Données"
+
+msgid "Options"
+msgstr "Options"
+
+msgid "Theme"
+msgstr "Thème"
+
+msgid "Output & Export"
+msgstr "Sortie et Exportation"
+
+msgid "Content"
+msgstr "Contenu"
+
+msgid "Text Labels"
+msgstr "Étiquettes de Texte"
+
+msgid "Main Title"
+msgstr "Titre Principal"
+
+msgid "Subtitle"
+msgstr "Sous-titre"
+
+msgid "X-Axis Label"
+msgstr "Étiquette de l'Axe X"
+
+msgid "Y-Axis Label"
+msgstr "Étiquette de l'Axe Y"
+
+msgid "Caption"
+msgstr "Légende (Bas de page)"
+
+msgid "Rotation Adjustment"
+msgstr "Ajustement de la Rotation"
+
+msgid "X-Title Angle"
+msgstr "Angle du Titre X"
+
+msgid "Y-Title Angle"
+msgstr "Angle du Titre Y"
+
+msgid "X-Values Angle"
+msgstr "Angle des Valeurs X"
+
+msgid "Y-Values Angle"
+msgstr "Angle des Valeurs Y"
+
+msgid "Legend"
+msgstr "Légende"
+
+msgid "Show Legend"
+msgstr "Afficher la Légende"
+
+msgid "Custom Legend Title"
+msgstr "Titre de Légende Personnalisé"
+
+msgid "Focus Style"
+msgstr "Style de Mise au Point"
+
+msgid "Focus Color"
+msgstr "Couleur de Mise au Point"
+
+msgid "Flip Coordinates"
+msgstr "Inverser les Coordonnées"
+
+msgid "Frequency type"
+msgstr "Type de Fréquence"
+
+msgid "Absolute (Counts)"
+msgstr "Absolue (Comptages)"
+
+msgid "Relative (%)"
+msgstr "Relative (%)"
+
+msgid "Bar position"
+msgstr "Position des Barres"
+
+msgid "Stack"
+msgstr "Empilées"
+
+msgid "Dodge"
+msgstr "Juxtaposées"
+
+msgid "Fill (100% Stacked)"
+msgstr "Remplissage (100% Empilé)"
+
+msgid "X-axis Ordering"
+msgstr "Ordre de l'Axe X"
+
+msgid "Order X-axis by frequency"
+msgstr "Ordonner l'Axe X par fréquence"
+
+msgid "Invert final order"
+msgstr "Inverser l'ordre final"

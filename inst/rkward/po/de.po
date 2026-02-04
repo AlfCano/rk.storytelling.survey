@@ -1,0 +1,122 @@
+msgid ""
+msgstr ""
+"Language: de\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Survey"
+msgstr "Umfrage"
+
+msgid "Graphs"
+msgstr "Grafiken"
+
+msgid "Storytelling with Data"
+msgstr "Storytelling mit Daten"
+
+msgid "Survey Line Graph"
+msgstr "Liniendiagramm (Umfrage)"
+
+msgid "Survey Means Graph"
+msgstr "Mittelwertgrafik (Umfrage)"
+
+msgid "Survey Bar Chart"
+msgstr "Balkendiagramm (Umfrage)"
+
+msgid "Big Number Summary"
+msgstr "Großzahlen-Zusammenfassung"
+
+msgid "Data"
+msgstr "Daten"
+
+msgid "Options"
+msgstr "Optionen"
+
+msgid "Theme"
+msgstr "Design"
+
+msgid "Output & Export"
+msgstr "Ausgabe & Export"
+
+msgid "Content"
+msgstr "Inhalt"
+
+msgid "Text Labels"
+msgstr "Textbeschriftungen"
+
+msgid "Main Title"
+msgstr "Haupttitel"
+
+msgid "Subtitle"
+msgstr "Untertitel"
+
+msgid "X-Axis Label"
+msgstr "X-Achsenbeschriftung"
+
+msgid "Y-Axis Label"
+msgstr "Y-Achsenbeschriftung"
+
+msgid "Caption"
+msgstr "Anmerkung (Caption)"
+
+msgid "Rotation Adjustment"
+msgstr "Rotationsanpassung"
+
+msgid "X-Title Angle"
+msgstr "Winkel X-Titel"
+
+msgid "Y-Title Angle"
+msgstr "Winkel Y-Titel"
+
+msgid "X-Values Angle"
+msgstr "Winkel X-Werte"
+
+msgid "Y-Values Angle"
+msgstr "Winkel Y-Werte"
+
+msgid "Legend"
+msgstr "Legende"
+
+msgid "Show Legend"
+msgstr "Legende Anzeigen"
+
+msgid "Custom Legend Title"
+msgstr "Benutzerdefinierter Legendentitel"
+
+msgid "Focus Style"
+msgstr "Fokus-Stil"
+
+msgid "Focus Color"
+msgstr "Fokusfarbe"
+
+msgid "Flip Coordinates"
+msgstr "Koordinaten Spiegeln"
+
+msgid "Frequency type"
+msgstr "Häufigkeitstyp"
+
+msgid "Absolute (Counts)"
+msgstr "Absolut (Zahlen)"
+
+msgid "Relative (%)"
+msgstr "Relativ (%)"
+
+msgid "Bar position"
+msgstr "Balkenposition"
+
+msgid "Stack"
+msgstr "Gestapelt"
+
+msgid "Dodge"
+msgstr "Nebeneinander"
+
+msgid "Fill (100% Stacked)"
+msgstr "Füllen (100% Gestapelt)"
+
+msgid "X-axis Ordering"
+msgstr "X-Achsen-Sortierung"
+
+msgid "Order X-axis by frequency"
+msgstr "X-Achse nach Häufigkeit sortieren"
+
+msgid "Invert final order"
+msgstr "Reihenfolge umkehren"

@@ -1,0 +1,112 @@
+<!DOCTYPE rkplugin >
+<document>
+	<!--
+		this code was generated using the rkwarddev package.
+	perhaps don't make changes here, but in the rkwarddev script instead!
+	-->
+	<code file="SurveyMeansGraph.js" />
+	<help file="SurveyMeansGraph.rkh" />
+	<!--
+		<dependencies>
+		</dependencies>
+	-->
+	<logic>
+		<!--
+			<convert id="!edit!" sources="!edit!" mode="equals" standard="!edit!" />
+		-->
+		<!--
+			<connect governor="!edit!.state" client="!edit!.enabled" />
+		-->
+	</logic>
+	<dialog label="SWD Survey: Means Graph">
+		<row id="row_vDDOCESEHC">
+			<varselector id="m_vs" />
+			<column id="clm_tDDOCESEHC">
+				<tabbook>
+					<tab label="Data" id="tab_Data">
+						<column id="clm_vrOCESEHCN">
+							<varslot id="m_svyby" label="svyby Object" source="m_vs" classes="data.frame" required="true" />
+							<varslot id="m_x" label="Category variable" source="m_vs" required="true" />
+							<varslot id="m_est" label="Estimate column" source="m_vs" required="true" />
+							<varslot id="m_se" label="SE column" source="m_vs" required="true" />
+							<input label="Highlight Category Name" id="m_focus_val" />
+						</column>
+					</tab>
+					<tab label="Options" id="tab_Options">
+						<column id="clm_fLLSL1CLTP">
+							<frame label="Legend" id="frm_Legend">
+								<checkbox id="m_show_legend" label="Show Legend" value="1" />
+								<input label="Custom Legend Title" id="m_legend_title" />
+								<dropdown id="m_legend_pos" label="Position">
+									<option label="Top" value="top" checked="true" />
+									<option label="Bottom" value="bottom" />
+									<option label="Left" value="left" />
+									<option label="Right" value="right" />
+								</dropdown>
+							</frame>
+							<stretch />
+							<frame label="Rotation Adjustment" id="frm_RttnAdjs">
+								<row id="row_sXTA9090YT">
+									<spinbox label="X-Title Angle" id="m_x_title_angle" min="-90" max="90" />
+									<spinbox label="Y-Title Angle" id="m_y_title_angle" min="-90" max="90" />
+								</row>
+								<row id="row_sXVA9090YV">
+									<spinbox label="X-Value Angle" id="m_x_angle" min="-90" max="90" />
+									<spinbox label="Y-Value Angle" id="m_y_angle" min="-90" max="90" />
+								</row>
+							</frame>
+						</column>
+					</tab>
+					<tab label="Theme" id="tab_Theme">
+						<column id="clm_fTLTLMTSXA">
+							<frame label="Text Labels" id="frm_TextLbls">
+								<input label="Main Title" id="m_title" />
+								<input label="Subtitle" id="m_subtitle" />
+								<row id="row_inptXALYAL">
+									<input label="X-Axis Label" id="m_xlab" />
+									<input label="Y-Axis Label" id="m_ylab" />
+								</row>
+								<input label="Caption" id="m_caption" />
+							</frame>
+							<frame label="Focus Color" id="frm_FocusClr">
+								<dropdown id="m_col_focus" label="Color">
+									<option label="SWD Red (#941100)" value="#941100" checked="true" />
+									<option label="SWD Blue (#1F77B4)" value="#1F77B4" />
+									<option label="SWD Orange (#FF7F0E)" value="#FF7F0E" />
+									<option label="SWD Green (#2CA02C)" value="#2CA02C" />
+									<option label="SWD Purple (#9467BD)" value="#9467BD" />
+									<option label="SWD Teal (#17BECF)" value="#17BECF" />
+									<option label="Black" value="black" />
+								</dropdown>
+								<spinbox label="Base Text Size" id="m_txt_size" initial="12" min="8" max="30" />
+							</frame>
+						</column>
+					</tab>
+					<tab label="Output &amp; Export" id="tab_OtptExpr">
+						<column id="clm_fGDGDDPNGP">
+							<frame label="Graphics Device" id="frm_GrphcsDv">
+								<dropdown id="m_dev_type" label="Device type">
+									<option label="PNG" value="PNG" checked="true" />
+									<option label="SVG" value="SVG" />
+								</dropdown>
+								<row id="row_sW10241004">
+									<spinbox label="Width (px)" id="m_dev_w" initial="1024" min="100" max="4000" />
+									<spinbox label="Height (px)" id="m_dev_h" initial="1024" min="100" max="4000" />
+								</row>
+								<column id="clm_sR15050600">
+									<spinbox label="Resolution (ppi)" id="m_dev_res" initial="150" min="50" max="600" />
+									<dropdown id="m_dev_bg" label="Background">
+										<option label="Transparent" value="transparent" checked="true" />
+										<option label="White" value="white" />
+									</dropdown>
+								</column>
+							</frame>
+							<saveobject label="Save Plot Object" checkable="true" checked="true" initial="p_svy_means" id="m_save" />
+							<preview label="Preview" id="m_preview" />
+						</column>
+					</tab>
+				</tabbook>
+			</column>
+		</row>
+	</dialog>
+</document>

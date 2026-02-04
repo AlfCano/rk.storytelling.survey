@@ -1,0 +1,157 @@
+<!DOCTYPE
+	rkpluginmap
+>
+<document
+	base_prefix=""
+	namespace="SurveyLineGraph"
+	id="SurveyLineGraph_rkward"
+	po_id="SurveyLineGraph_rkward"
+	priority="medium"
+>
+	<!--
+		this code was generated using the rkwarddev package.
+	perhaps don't make changes here, but in the rkwarddev script instead!
+	-->
+	<!--
+		<dependencies>
+		</dependencies>
+	-->
+	<about
+		name="rk.storytelling.survey"
+		shortinfo="SWD principles applied to svyby objects with robust coordinate scaling and big numbers."
+		longinfo="SWD principles applied to svyby objects with robust coordinate scaling and big numbers."
+		version="0.1.0"
+		releasedate="2026-02-03"
+		url="https://github.com/AlfCano/rk.storytelling.survey"
+		license="GPL (&gt;= 3)"
+	>
+		<author
+			given="Alfonso"
+			family="Cano"
+			email="alfonso.cano@correo.buap.mx"
+			role="aut, cre"
+		/>
+	</about>
+	<require
+		map="rkward::menu"
+	/>
+	<require
+		map="rkward::embedded"
+	/>
+	<components>
+		<component
+			id="cmp_SurveyLineGrphSrvyMnsGrph"
+			label="Survey Means Graph"
+			type="standard"
+			file="plugins/SurveyMeansGraph.xml"
+		>
+		</component>
+		<component
+			id="cmp_SurveyLineGraphSrvyBrChrt"
+			label="Survey Bar Chart"
+			type="standard"
+			file="plugins/SurveyBarChart.xml"
+		>
+		</component>
+		<component
+			id="cmp_SurveyLineGrphBgNmbrSmmry"
+			label="Big Number Summary"
+			type="standard"
+			file="plugins/BigNumberSummary.xml"
+		>
+		</component>
+		<component
+			id="cmp_SurveyLineGraphSrvyLnGrph"
+			label="Survey Line Graph"
+			type="standard"
+			file="plugins/SurveyLineGraph.xml"
+		>
+		</component>
+	</components>
+	<hierarchy>
+		<menu
+			id="men_Survey"
+			label="Survey"
+		>
+			<menu
+				id="men_Graphs"
+				label="Graphs"
+			>
+				<menu
+					id="men_StrytllngD"
+					label="Storytelling with Data"
+				>
+					<entry
+						component="cmp_SurveyLineGrphSrvyMnsGrph"
+					/>
+				</menu>
+			</menu>
+		</menu>
+		<menu
+			id="men_Survey"
+			label="Survey"
+		>
+			<menu
+				id="men_Graphs"
+				label="Graphs"
+			>
+				<menu
+					id="men_StrytllngD"
+					label="Storytelling with Data"
+				>
+					<entry
+						component="cmp_SurveyLineGraphSrvyBrChrt"
+					/>
+				</menu>
+			</menu>
+		</menu>
+		<menu
+			id="men_Survey"
+			label="Survey"
+		>
+			<menu
+				id="men_Graphs"
+				label="Graphs"
+			>
+				<menu
+					id="men_StrytllngD"
+					label="Storytelling with Data"
+				>
+					<entry
+						component="cmp_SurveyLineGrphBgNmbrSmmry"
+					/>
+				</menu>
+			</menu>
+		</menu>
+		<menu
+			id="men_Survey"
+			label="Survey"
+		>
+			<menu
+				id="men_Graphs"
+				label="Graphs"
+			>
+				<menu
+					id="men_StrytllngD"
+					label="Storytelling with Data"
+				>
+					<entry
+						component="cmp_SurveyLineGraphSrvyLnGrph"
+					/>
+				</menu>
+			</menu>
+		</menu>
+	</hierarchy>
+	<!--
+		<context
+			id="x11"
+		>
+		</context>
+	-->
+	<!--
+		<context
+			id="import"
+		>
+		</context>
+	-->
+</document>

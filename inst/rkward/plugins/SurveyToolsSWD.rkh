@@ -1,0 +1,79 @@
+<!DOCTYPE rkhelp >
+<document>
+	<!--
+		this code was generated using the rkwarddev package.
+	perhaps don't make changes here, but in the rkwarddev script instead!
+	-->
+	<summary>
+	</summary>
+	<usage>
+	</usage>
+	<!--
+		<section id="sct_EDITORDE" title="EDIT OR DELETE ME">
+			EDIT OR DELETE ME
+		</section>
+	-->
+	<settings>
+		<caption id="tab_Data" />
+		<setting id="l_svyby">
+		</setting>
+		<setting id="l_x">
+		</setting>
+		<setting id="l_grp">
+		</setting>
+		<setting id="l_est">
+		</setting>
+		<setting id="l_se">
+		</setting>
+		<setting id="l_focus_val">
+		</setting>
+		<setting id="l_conf">
+		</setting>
+		<caption id="tab_Theme" />
+		<caption id="frm_TextLbls" />
+		<setting id="l_title">
+		</setting>
+		<setting id="l_subtitle">
+		</setting>
+		<setting id="l_xlab">
+		</setting>
+		<setting id="l_ylab">
+		</setting>
+		<setting id="l_caption">
+		</setting>
+		<caption id="frm_LgndStyl" />
+		<setting id="l_col_focus">
+		</setting>
+		<setting id="l_legend_pos">
+		</setting>
+		<setting id="l_x_angle">
+		</setting>
+		<setting id="l_txt_size">
+		</setting>
+		<caption id="tab_OtptExpr" />
+		<caption id="frm_GrphcsDv" />
+		<setting id="l_dev_type">
+		</setting>
+		<setting id="l_dev_w">
+		</setting>
+		<setting id="l_dev_h">
+		</setting>
+		<setting id="l_dev_res">
+		</setting>
+		<setting id="l_dev_bg">
+		</setting>
+		<setting id="l_save">
+		</setting>
+	</settings>
+	<!--
+		<related>
+			<ul>
+				<li>
+					<link href="rkward://rhelp/..." />
+				</li>
+			</ul>
+		</related>
+	-->
+	<technical>
+	</technical>
+</document>

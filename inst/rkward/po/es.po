@@ -1,0 +1,122 @@
+msgid ""
+msgstr ""
+"Language: es\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Survey"
+msgstr "Encuestas"
+
+msgid "Graphs"
+msgstr "Gráficos"
+
+msgid "Storytelling with Data"
+msgstr "Storytelling con Datos"
+
+msgid "Survey Line Graph"
+msgstr "Gráfico de Líneas (Encuesta)"
+
+msgid "Survey Means Graph"
+msgstr "Gráfico de Medias (Encuesta)"
+
+msgid "Survey Bar Chart"
+msgstr "Gráfico de Barras (Encuesta)"
+
+msgid "Big Number Summary"
+msgstr "Resumen de Número Grande"
+
+msgid "Data"
+msgstr "Datos"
+
+msgid "Options"
+msgstr "Opciones"
+
+msgid "Theme"
+msgstr "Tema"
+
+msgid "Output & Export"
+msgstr "Salida y Exportación"
+
+msgid "Content"
+msgstr "Contenido"
+
+msgid "Text Labels"
+msgstr "Etiquetas de Texto"
+
+msgid "Main Title"
+msgstr "Título Principal"
+
+msgid "Subtitle"
+msgstr "Subtítulo"
+
+msgid "X-Axis Label"
+msgstr "Etiqueta Eje X"
+
+msgid "Y-Axis Label"
+msgstr "Etiqueta Eje Y"
+
+msgid "Caption"
+msgstr "Nota al Pie"
+
+msgid "Rotation Adjustment"
+msgstr "Ajuste de Rotación"
+
+msgid "X-Title Angle"
+msgstr "Ángulo Título X"
+
+msgid "Y-Title Angle"
+msgstr "Ángulo Título Y"
+
+msgid "X-Values Angle"
+msgstr "Ángulo Valores X"
+
+msgid "Y-Values Angle"
+msgstr "Ángulo Valores Y"
+
+msgid "Legend"
+msgstr "Leyenda"
+
+msgid "Show Legend"
+msgstr "Mostrar Leyenda"
+
+msgid "Custom Legend Title"
+msgstr "Título de Leyenda Personalizado"
+
+msgid "Focus Style"
+msgstr "Estilo de Enfoque"
+
+msgid "Focus Color"
+msgstr "Color de Enfoque"
+
+msgid "Flip Coordinates"
+msgstr "Invertir Coordenadas"
+
+msgid "Frequency type"
+msgstr "Tipo de Frecuencia"
+
+msgid "Absolute (Counts)"
+msgstr "Absoluta (Conteos)"
+
+msgid "Relative (%)"
+msgstr "Relativa (%)"
+
+msgid "Bar position"
+msgstr "Posición de Barras"
+
+msgid "Stack"
+msgstr "Apiladas"
+
+msgid "Dodge"
+msgstr "Agrupadas"
+
+msgid "Fill (100% Stacked)"
+msgstr "Llenado (100% Apiladas)"
+
+msgid "X-axis Ordering"
+msgstr "Orden del Eje X"
+
+msgid "Order X-axis by frequency"
+msgstr "Ordenar Eje X por frecuencia"
+
+msgid "Invert final order"
+msgstr "Invertir orden final"

@@ -1,0 +1,93 @@
+<!DOCTYPE rkhelp >
+<document>
+	<!--
+		this code was generated using the rkwarddev package.
+	perhaps don't make changes here, but in the rkwarddev script instead!
+	-->
+	<title>
+		Survey Means Graph
+	</title>
+	<summary>
+		Weighted point estimates with error bars.
+	</summary>
+	<usage>
+		Ideal for cross-sectional comparisons.
+	</usage>
+	<!--
+		<section id="sct_EDITORDE" title="EDIT OR DELETE ME">
+			EDIT OR DELETE ME
+		</section>
+	-->
+	<settings>
+		<caption id="tab_Data" />
+		<setting id="m_svyby">
+		</setting>
+		<setting id="m_x">
+		</setting>
+		<setting id="m_est">
+		</setting>
+		<setting id="m_se">
+		</setting>
+		<setting id="m_focus_val">
+		</setting>
+		<caption id="tab_Options" />
+		<caption id="frm_Legend" />
+		<setting id="m_show_legend">
+		</setting>
+		<setting id="m_legend_title">
+		</setting>
+		<setting id="m_legend_pos">
+		</setting>
+		<caption id="frm_RttnAdjs" />
+		<setting id="m_x_title_angle">
+		</setting>
+		<setting id="m_y_title_angle">
+		</setting>
+		<setting id="m_x_angle">
+		</setting>
+		<setting id="m_y_angle">
+		</setting>
+		<caption id="tab_Theme" />
+		<caption id="frm_TextLbls" />
+		<setting id="m_title">
+		</setting>
+		<setting id="m_subtitle">
+		</setting>
+		<setting id="m_xlab">
+		</setting>
+		<setting id="m_ylab">
+		</setting>
+		<setting id="m_caption">
+		</setting>
+		<caption id="frm_FocusClr" />
+		<setting id="m_col_focus">
+		</setting>
+		<setting id="m_txt_size">
+		</setting>
+		<caption id="tab_OtptExpr" />
+		<caption id="frm_GrphcsDv" />
+		<setting id="m_dev_type">
+		</setting>
+		<setting id="m_dev_w">
+		</setting>
+		<setting id="m_dev_h">
+		</setting>
+		<setting id="m_dev_res">
+		</setting>
+		<setting id="m_dev_bg">
+		</setting>
+		<setting id="m_save">
+		</setting>
+	</settings>
+	<!--
+		<related>
+			<ul>
+				<li>
+					<link href="rkward://rhelp/..." />
+				</li>
+			</ul>
+		</related>
+	-->
+	<technical>
+	</technical>
+</document>

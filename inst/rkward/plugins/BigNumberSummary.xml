@@ -1,0 +1,75 @@
+<!DOCTYPE rkplugin >
+<document>
+	<!--
+		this code was generated using the rkwarddev package.
+	perhaps don't make changes here, but in the rkwarddev script instead!
+	-->
+	<code file="BigNumberSummary.js" />
+	<help file="BigNumberSummary.rkh" />
+	<!--
+		<dependencies>
+		</dependencies>
+	-->
+	<logic>
+		<!--
+			<convert id="!edit!" sources="!edit!" mode="equals" standard="!edit!" />
+		-->
+		<!--
+			<connect governor="!edit!.state" client="!edit!.enabled" />
+		-->
+	</logic>
+	<dialog label="SWD: Big Number Summary">
+		<row id="row_cCCLV91CTL">
+			<column id="clm_tCCLV91CTL">
+				<tabbook>
+					<tab label="Content" id="tab_Content">
+						<column id="clm_inptLV91CT">
+							<input label="Large Value" id="bn_val" initial="91%" />
+							<input label="Context Text" id="bn_text" initial="summary text here" />
+						</column>
+					</tab>
+					<tab label="Theme" id="tab_Theme">
+						<column id="clm_fTLTLMTSCC">
+							<frame label="Text Labels" id="frm_TextLbls">
+								<input label="Main Title" id="bn_title" />
+								<input label="Subtitle" id="bn_subtitle" />
+							</frame>
+							<frame label="Colors" id="frm_Colors">
+								<dropdown id="bn_col_focus" label="Focus Color">
+									<option label="SWD Orange (#FF7F0E)" value="#FF7F0E" checked="true" />
+									<option label="SWD Red (#941100)" value="#941100" />
+									<option label="SWD Blue (#1F77B4)" value="#1F77B4" />
+									<option label="Black" value="black" />
+								</dropdown>
+							</frame>
+							<spinbox label="Base Text Size" id="bn_txt_size" initial="12" min="8" max="30" />
+						</column>
+					</tab>
+					<tab label="Output &amp; Export" id="tab_OtptExpr">
+						<column id="clm_fGDGDDPNGP">
+							<frame label="Graphics Device" id="frm_GrphcsDv">
+								<dropdown id="bn_dev_type" label="Device type">
+									<option label="PNG" value="PNG" checked="true" />
+									<option label="SVG" value="SVG" />
+								</dropdown>
+								<row id="row_sW10241004">
+									<spinbox label="Width (px)" id="bn_dev_w" initial="1024" min="100" max="4000" />
+									<spinbox label="Height (px)" id="bn_dev_h" initial="1024" min="100" max="4000" />
+								</row>
+								<column id="clm_sR15050600">
+									<spinbox label="Resolution (ppi)" id="bn_dev_res" initial="150" min="50" max="600" />
+									<dropdown id="bn_dev_bg" label="Background">
+										<option label="Transparent" value="transparent" checked="true" />
+										<option label="White" value="white" />
+									</dropdown>
+								</column>
+							</frame>
+							<saveobject label="Save Plot Object" checkable="true" checked="true" initial="p_big_number" id="bn_save" />
+							<preview label="Preview" id="bn_preview" />
+						</column>
+					</tab>
+				</tabbook>
+			</column>
+		</row>
+	</dialog>
+</document>

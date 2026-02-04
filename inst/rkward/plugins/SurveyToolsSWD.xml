@@ -1,0 +1,101 @@
+<!DOCTYPE rkplugin >
+<document>
+	<!--
+		this code was generated using the rkwarddev package.
+	perhaps don't make changes here, but in the rkwarddev script instead!
+	-->
+	<code file="SurveyToolsSWD.js" />
+	<help file="SurveyToolsSWD.rkh" />
+	<!--
+		<dependencies>
+		</dependencies>
+	-->
+	<logic>
+		<!--
+			<convert id="!edit!" sources="!edit!" mode="equals" standard="!edit!" />
+		-->
+		<!--
+			<connect governor="!edit!.state" client="!edit!.enabled" />
+		-->
+	</logic>
+	<dialog label="SWD Survey: Line Graph">
+		<row id="row_vDDODFXAGV">
+			<varselector id="l_vs" />
+			<column id="clm_tDDODFXAGV">
+				<tabbook>
+					<tab label="Data" id="tab_Data">
+						<column id="clm_vODFXAGVES">
+							<varslot id="l_svyby" label="svyby Object (Data Frame)" source="l_vs" classes="data.frame" required="true" />
+							<varslot id="l_x" label="X Axis" source="l_vs" required="true" />
+							<varslot id="l_grp" label="Grouping Variable" source="l_vs" />
+							<varslot id="l_est" label="Estimate column(s)" source="l_vs" required="true" multi="true" />
+							<varslot id="l_se" label="SE column(s)" source="l_vs" required="true" multi="true" />
+							<input label="Highlight Name (Group or Stack)" id="l_focus_val" />
+							<spinbox label="CI level (%)" id="l_conf" initial="95" min="1" max="99" />
+						</column>
+					</tab>
+					<tab label="Theme" id="tab_Theme">
+						<column id="clm_fTLTLMTSXA">
+							<frame label="Text Labels" id="frm_TextLbls">
+								<input label="Main Title" id="l_title" />
+								<input label="Subtitle" id="l_subtitle" />
+								<row id="row_inptXALYAL">
+									<input label="X-Axis Label" id="l_xlab" />
+									<input label="Y-Axis Label" id="l_ylab" />
+								</row>
+								<input label="Caption" id="l_caption" />
+							</frame>
+							<frame label="Legend &amp; Style" id="frm_LgndStyl">
+								<row id="row_cFCSWDR941">
+									<column id="clm_dFCSWDR941">
+										<dropdown id="l_col_focus" label="Focus Color">
+											<option label="SWD Red (#941100)" value="#941100" checked="true" />
+											<option label="SWD Blue (#1F77B4)" value="#1F77B4" />
+											<option label="SWD Orange (#FF7F0E)" value="#FF7F0E" />
+											<option label="SWD Green (#2CA02C)" value="#2CA02C" />
+											<option label="SWD Purple (#9467BD)" value="#9467BD" />
+											<option label="SWD Teal (#17BECF)" value="#17BECF" />
+											<option label="Black" value="black" />
+										</dropdown>
+									</column>
+									<column id="clm_drpdwLPTBN">
+										<dropdown id="l_legend_pos" label="Legend Position">
+											<option label="Top" value="top" checked="true" />
+											<option label="Bottom" value="bottom" />
+											<option label="None" value="none" />
+										</dropdown>
+									</column>
+								</row>
+								<spinbox label="X-Axis Text Angle" id="l_x_angle" min="-90" max="90" />
+							</frame>
+							<spinbox label="Base Text Size" id="l_txt_size" initial="12" min="8" max="30" />
+						</column>
+					</tab>
+					<tab label="Output &amp; Export" id="tab_OtptExpr">
+						<column id="clm_fGDGDDPNGP">
+							<frame label="Graphics Device" id="frm_GrphcsDv">
+								<dropdown id="l_dev_type" label="Device type">
+									<option label="PNG" value="PNG" checked="true" />
+									<option label="SVG" value="SVG" />
+								</dropdown>
+								<row id="row_sW10241004">
+									<spinbox label="Width (px)" id="l_dev_w" initial="1024" min="100" max="4000" />
+									<spinbox label="Height (px)" id="l_dev_h" initial="1024" min="100" max="4000" />
+								</row>
+								<column id="clm_sR15050600">
+									<spinbox label="Resolution (ppi)" id="l_dev_res" initial="150" min="50" max="600" />
+									<dropdown id="l_dev_bg" label="Background">
+										<option label="Transparent" value="transparent" checked="true" />
+										<option label="White" value="white" />
+									</dropdown>
+								</column>
+							</frame>
+							<saveobject label="Save Plot Object" checkable="true" checked="true" initial="p_svy_line" id="l_save" />
+							<preview label="Preview" id="l_preview" />
+						</column>
+					</tab>
+				</tabbook>
+			</column>
+		</row>
+	</dialog>
+</document>

@@ -2,8 +2,8 @@ Package: rk.storytelling.survey
 Type: Package
 Title: SWD principles applied to svyby objects with robust coordinate
         scaling and big numbers.
-Version: 0.1.0
-Date: 2026-02-03
+Version: 0.1.1
+Date: 2026-06-21
 Author: Alfonso Cano
 Maintainer: Alfonso Cano <alfonso.cano@correo.buap.mx>
 Enhances: rkward

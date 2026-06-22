@@ -41,6 +41,10 @@ function preprocess(is_preview){
 		echo("if(!base::require(stringr)){stop(" + i18n("Preview not available, because package stringr is not installed or cannot be loaded.") + ")}\n");
 	} else {
 		echo("require(stringr)\n");
+	}	if(is_preview) {
+		echo("if(!base::require(forcats)){stop(" + i18n("Preview not available, because package forcats is not installed or cannot be loaded.") + ")}\n");
+	} else {
+		echo("require(forcats)\n");
 	}
 }
 
@@ -67,40 +71,8 @@ function calculate(is_preview){
         if (!rawValue) return [];
         var raw = rawValue.split(/\n/).filter(function(s){return s != ""});
         return raw.map(function(item) {
-            var lastBracketPos = item.lastIndexOf("[[");
-            if (lastBracketPos > -1) {
-                var lastPart = item.substring(lastBracketPos);
-                var match = lastPart.match(/\[\[\"(.*?)\"\]\]/);
-                if (match) { return match[1]; }
-            }
-            return item.indexOf("$") > -1 ? item.substring(item.lastIndexOf("$") + 1) : item;
+            return getColumnName(item);
         });
-    }
-    
-    function getThemeCode(prefix) {
-        var txt_size = getValue(prefix + "_txt_size");
-        var x_ang = getValue(prefix + "_x_angle");
-        var y_ang = getValue(prefix + "_y_angle");
-        var x_t_ang = getValue(prefix + "_x_title_angle");
-        var y_t_ang = getValue(prefix + "_y_title_angle");
-        var show_leg = getValue(prefix + "_show_legend");
-        var leg_pos = getValue(prefix + "_legend_pos");
-        
-        var y_vjust = (y_t_ang == 0) ? "1.02" : "0.5";
-        var y_hjust = (y_t_ang == 0) ? "0" : "0.5";
-
-        var code = " + ggplot2::theme_minimal(base_size = " + txt_size + ")";
-        code += " + ggplot2::theme(plot.title.position = \"plot\", legend.justification = \"left\", panel.grid.minor = ggplot2::element_blank(), panel.grid.major.x = ggplot2::element_blank())";
-        
-        if (show_leg == "1") {
-            code += " + ggplot2::theme(legend.position = \"" + leg_pos + "\")";
-        } else {
-            code += " + ggplot2::theme(legend.position = \"none\")";
-        }
-
-        code += " + ggplot2::theme(axis.title.y = ggplot2::element_text(angle = " + y_t_ang + ", vjust = " + y_vjust + ", hjust = " + y_hjust + ", color = \"gray40\"), axis.title.x = ggplot2::element_text(angle = " + x_t_ang + ", hjust = 0, color = \"gray40\"))";
-        code += " + ggplot2::theme(axis.text.x = ggplot2::element_text(angle = " + x_ang + "), axis.text.y = ggplot2::element_text(angle = " + y_ang + "))";
-        return code;
     }
 
     function getSafeColor(id, defaultVal) {
@@ -109,49 +81,128 @@ function calculate(is_preview){
         return c;
     }
    
-    var df = getValue("l_svyby"); var x = getColumnName(getValue("l_x")); var grp = getColumnName(getValue("l_grp"));
-    var est_cols = getCleanArray("l_est"); var se_cols = getCleanArray("l_se");
-    var focus = getValue("l_focus_val"); var conf = getValue("l_conf") / 100;
-    var nudge = getValue("l_nudge_x"); var expand_r = getValue("l_expand_r");
+    var df = getValue("l_svyby_object");
+    if(!df) return;
+    var x = getColumnName(getValue("l_xaxis_var")); 
+    var grp = getColumnName(getValue("l_group_var"));
+    var est_cols = getCleanArray("l_estimate_vars"); 
+    var se_cols = getCleanArray("l_se_vars");
+    var focus = getValue("l_focus_val"); 
+    var conf = getValue("l_conf_level") / 100;
+    var nudge = getValue("l_nudge_x");
 
     echo("ci_multiplier <- qnorm(1 - (1 - " + conf + ") / 2)\n");
     echo("est_dat <- " + df + " %>% dplyr::mutate(rk_internal_id = dplyr::row_number())\n");
-    var id_list = [x, grp, "rk_internal_id"].filter(function(v){return v != "NULL"}).map(function(v){return "\"" + v + "\""}).join(", ");
+    
+    // SAFE ID LIST CONSTRUCTION
+    var id_vars = [];
+    id_vars.push("\"" + x + "\"");
+    if(grp && grp !== "") { id_vars.push("\"" + grp + "\""); }
+    id_vars.push("\"rk_internal_id\"");
+    var id_list = id_vars.join(", ");
+
     var est_list = est_cols.map(function(v){return "\"" + v + "\""}).join(", ");
     var se_list = se_cols.map(function(v){return "\"" + v + "\""}).join(", ");
+    
     echo("piv1 <- est_dat %>% dplyr::select(dplyr::all_of(c(" + id_list + ", " + est_list + "))) %>% tidyr::pivot_longer(cols=dplyr::all_of(c(" + est_list + ")), names_to = \"respuesta\", values_to = \"recuento\")\n");
     echo("piv2 <- est_dat %>% dplyr::select(dplyr::all_of(c(\"rk_internal_id\", " + se_list + "))) %>% tidyr::pivot_longer(cols=dplyr::all_of(c(" + se_list + ")), names_to = \"variable\", values_to = \"se\")\n");
+    
     if (est_cols.length == 1) { echo("piv2 <- piv2 %>% dplyr::mutate(respuesta = \"" + est_cols[0] + "\")\n"); }
     else { echo("piv2 <- piv2 %>% dplyr::mutate(respuesta = stringr::str_remove(variable, \"^se\\\\.\"))\n"); }
+    
     echo("piv3 <- dplyr::left_join(piv1, piv2, by = c(\"rk_internal_id\", \"respuesta\"))\n");
+
+    var clean_prefix = getValue("l_clean_legend_prefix");
+    if (clean_prefix) { echo("piv3[[\"respuesta\"]] <- stringr::str_remove(piv3[[\"respuesta\"]], \"" + clean_prefix + "\")\n"); }
+
     echo("piv3[[\"" + x + "\"]] <- as.factor(piv3[[\"" + x + "\"]])\n");
     echo("focus_col <- \"" + getSafeColor("l_col_focus", "#941100") + "\"\n");
-    var color_aes = (grp != "NULL") ? grp : "respuesta";
-    echo("p <- ggplot2::ggplot(piv3, ggplot2::aes(x = " + x + ", y = recuento, color = " + color_aes + ", group = interaction(" + (grp != "NULL" ? grp + ", " : "") + "respuesta))) +\n");
+    
+    var color_aes = (grp !== "") ? grp : "respuesta";
+    var interaction_arg = (grp !== "") ? grp + ", respuesta" : "respuesta";
+
+    echo("p <- ggplot2::ggplot(piv3, ggplot2::aes(x = " + x + ", y = recuento, color = " + color_aes + ", group = interaction(" + interaction_arg + "))) +\n");
     echo("  ggplot2::geom_ribbon(ggplot2::aes(ymin = recuento - ci_multiplier*se, ymax = recuento + ci_multiplier*se, fill = " + color_aes + "), color = NA, alpha = 0.2) +\n");
-    echo("  ggplot2::geom_line(size = 1, na.rm = TRUE) + ggplot2::geom_point(size = 2, na.rm = TRUE)\n");
+    echo("  ggplot2::geom_line(linewidth = 1, na.rm = TRUE) + ggplot2::geom_point(size = 2, na.rm = TRUE)\n");
+    
     echo("lvls <- levels(factor(piv3[[\"" + color_aes + "\"]]))\n");
     echo("p <- p + ggplot2::scale_color_manual(values = setNames(ifelse(lvls == \"" + focus + "\", focus_col, \"gray80\"), lvls))\n");
     echo("p <- p + ggplot2::scale_fill_manual(values = setNames(ifelse(lvls == \"" + focus + "\", focus_col, \"gray90\"), lvls))\n");
     echo("p <- p + ggrepel::geom_text_repel(data = . %>% dplyr::group_by(" + color_aes + ") %>% dplyr::filter(as.numeric(factor(" + x + ")) == max(as.numeric(factor(" + x + ")))), ggplot2::aes(label = " + color_aes + "), nudge_x = " + nudge + ", hjust = 0, direction = \"y\", fontface = \"bold\")\n");
-    
-    var labs_list = [];
-    if(getValue("l_title")) labs_list.push("title = \"" + getValue("l_title") + "\"");
-    if(getValue("l_subtitle")) labs_list.push("subtitle = \"" + getValue("l_subtitle") + "\"");
-    if(getValue("l_caption")) labs_list.push("caption = \"" + getValue("l_caption") + "\"");
-    if(getValue("l_xlab")) labs_list.push("x = \"" + getValue("l_xlab") + "\"");
-    if(getValue("l_ylab")) labs_list.push("y = \"" + getValue("l_ylab") + "\"");
-    var leg_t = getValue("l_legend_title");
-    if(leg_t) { labs_list.push("color = \"" + leg_t + "\""); labs_list.push("fill = \"" + leg_t + "\""); }
-    if(labs_list.length > 0) echo("p <- p + ggplot2::labs(" + labs_list.join(", ") + ")\n");
+    echo("p <- p + ggplot2::scale_x_discrete(expand = ggplot2::expansion(mult = c(0.05, 0.25)))\n");
 
-    echo("p <- p " + getThemeCode("l") + " + ggplot2::theme(axis.line = ggplot2::element_line(color=\"gray40\")) + ggplot2::scale_x_discrete(expand = ggplot2::expansion(mult = c(0.05, " + expand_r + ")))\n");
-    
     echo("y_vals <- c(piv3$recuento - ci_multiplier*piv3$se, piv3$recuento + ci_multiplier*piv3$se)\n");
     echo("y_lims <- range(y_vals[is.finite(y_vals)], na.rm=TRUE)\n");
-    var coord_func = (getValue("l_flip") == "1") ? "lemon::coord_capped_flip" : "lemon::coord_capped_cart";
-    echo("if(length(y_lims) == 2) { p <- p + " + coord_func + "(left = \"top\", ylim = c(y_lims[1]*0.95, y_lims[2]*1.05)) } else { p <- p + " + coord_func + "(left = \"top\") }\n");
-  
+    echo("if(length(y_lims) == 2) { p <- p + lemon::coord_capped_cart(left = \"top\", ylim = c(y_lims[1]*0.95, y_lims[2]*1.05)) } else { p <- p + lemon::coord_capped_cart(left = \"top\") }\n");
+   
+      var labs_list = [];
+      var custom_xlab = getValue("l_plot_xlab");
+      var xlab_wrap = getValue("l_plot_xlab_wrap");
+      var xlab_call;
+      if (custom_xlab) { xlab_call = "\"" + custom_xlab + "\""; }
+      else { xlab_call = "rk.get.label(" + getValue("l_xaxis_var") + ")"; }
+      if (xlab_wrap && parseInt(xlab_wrap) > 0) {
+          xlab_call = "scales::label_wrap(" + xlab_wrap + ")(" + xlab_call + ")";
+      }
+      labs_list.push("x = " + xlab_call);
+
+      var custom_ylab = getValue("l_plot_ylab");
+      var ylab_wrap = getValue("l_plot_ylab_wrap");
+      if (custom_ylab) {
+          var ylab_call = "\"" + custom_ylab + "\"";
+          if (ylab_wrap && parseInt(ylab_wrap) > 0) {
+              ylab_call = "scales::label_wrap(" + ylab_wrap + ")(" + ylab_call + ")";
+          }
+          labs_list.push("y = " + ylab_call);
+      }
+
+      var custom_legend_title = getValue("l_plot_legend_title");
+      var legend_title_wrap_width = getValue("l_legend_title_wrap_width");
+      var legend_title_call;
+      if (custom_legend_title) { legend_title_call = "\"" + custom_legend_title + "\""; }
+      else { legend_title_call = "\"" + "\""; }
+      if (legend_title_wrap_width && parseInt(legend_title_wrap_width) > 0) {
+          legend_title_call = "scales::label_wrap(" + legend_title_wrap_width + ")(" + legend_title_call + ")";
+      }
+      labs_list.push("color = " + legend_title_call);
+      labs_list.push("fill = " + legend_title_call);
+
+      if (getValue("l_plot_title")) { labs_list.push("title = \"" + getValue("l_plot_title") + "\""); }
+      if (getValue("l_plot_subtitle")) { labs_list.push("subtitle = \"" + getValue("l_plot_subtitle") + "\""); }
+      if (getValue("l_plot_caption")) { labs_list.push("caption = \"" + getValue("l_plot_caption") + "\""); }
+
+      if (labs_list.length > 0) {
+        echo("p <- p + ggplot2::labs(" + labs_list.join(", ") + ")\n");
+      }
+
+      echo("p <- p + ggplot2::theme_minimal(base_size = " + getValue("l_theme_base_size") + ")\n");
+      
+      var theme_list = [];
+      theme_list.push("plot.title.position = \"plot\"");
+      theme_list.push("panel.grid.minor = ggplot2::element_blank()");
+      theme_list.push("panel.grid.major.x = ggplot2::element_blank()");
+      theme_list.push("axis.line = ggplot2::element_line(color=\"gray40\")");
+      theme_list.push("legend.position = \"" + getValue("l_theme_legend_pos") + "\"");
+      
+      var x_angle = getValue("l_theme_x_angle");
+      var x_hjust = getValue("l_theme_x_hjust");
+      var x_vjust = getValue("l_theme_x_vjust");
+      if(x_angle != 0 || x_hjust != 0.5 || x_vjust != 0.5) {
+          theme_list.push("axis.text.x = ggplot2::element_text(angle=" + x_angle + ", hjust=" + x_hjust + ", vjust=" + x_vjust + ")");
+      }
+      if(theme_list.length > 0) {
+        echo("p <- p + ggplot2::theme(" + theme_list.join(", ") + ")\n");
+      }
+
+      var x_val_wrap = getValue("l_theme_x_val_wrap");
+      if (x_val_wrap && parseInt(x_val_wrap) > 0) {
+          echo("p <- p + ggplot2::scale_x_discrete(labels = scales::label_wrap(" + x_val_wrap + "))\n");
+      }
+      var y_val_wrap = getValue("l_theme_y_val_wrap");
+      if (y_val_wrap && parseInt(y_val_wrap) > 0) {
+          echo("p <- p + ggplot2::scale_y_continuous(labels = scales::label_wrap(" + y_val_wrap + "))\n");
+      }
+    
 }
 
 function printout(is_preview){
@@ -162,21 +213,22 @@ function printout(is_preview){
 	if(!is_preview) {
 		new Header(i18n("Survey Line Graph results")).print();	
 	}
-        if (is_preview) { 
-            echo("print(p)\n"); 
-        } else {
-            var opts = [];
-            opts.push("device.type=\"" + getValue("l_dev_type") + "\"");
-            opts.push("width=" + getValue("l_dev_w"));
-            opts.push("height=" + getValue("l_dev_h"));
-            opts.push("res=" + getValue("l_dev_res"));
-            opts.push("bg=\"" + getValue("l_dev_bg") + "\"");
-            echo("rk.graph.on(" + opts.join(", ") + ")\n");
-            echo("print(p)\n");
-            echo("rk.graph.off()\n");
-            echo("p_svy_line <- p\n");
-        }
-      
+      if(!is_preview){
+        var graph_options = [];
+        graph_options.push("device.type=\"" + getValue("l_device_type") + "\"");
+        graph_options.push("width=" + getValue("l_dev_width"));
+        graph_options.push("height=" + getValue("l_dev_height"));
+        graph_options.push("pointsize=10.0");
+        graph_options.push("res=" + getValue("l_dev_res"));
+        graph_options.push("bg=\"" + getValue("l_dev_bg") + "\"");
+        echo("try(rk.graph.on(" + graph_options.join(", ") + "))\n");
+      }
+      echo("try(print(p))\n");
+      if(!is_preview){
+        echo("try(rk.graph.off())\n");
+        echo("p_svy_line <- p\n");
+      }
+    
 	if(!is_preview) {
 		//// save result object
 		// read in saveobject variables

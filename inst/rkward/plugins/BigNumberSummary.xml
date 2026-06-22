@@ -19,57 +19,48 @@
 		-->
 	</logic>
 	<dialog label="SWD: Big Number Summary">
-		<row id="row_cCCLV91CTL">
-			<column id="clm_tCCLV91CTL">
-				<tabbook>
-					<tab label="Content" id="tab_Content">
-						<column id="clm_inptLV91CT">
-							<input label="Large Value" id="bn_val" initial="91%" />
-							<input label="Context Text" id="bn_text" initial="summary text here" />
-						</column>
-					</tab>
-					<tab label="Theme" id="tab_Theme">
-						<column id="clm_fTLTLMTSCC">
-							<frame label="Text Labels" id="frm_TextLbls">
-								<input label="Main Title" id="bn_title" />
-								<input label="Subtitle" id="bn_subtitle" />
-							</frame>
-							<frame label="Colors" id="frm_Colors">
-								<dropdown id="bn_col_focus" label="Focus Color">
-									<option label="SWD Orange (#FF7F0E)" value="#FF7F0E" checked="true" />
-									<option label="SWD Red (#941100)" value="#941100" />
-									<option label="SWD Blue (#1F77B4)" value="#1F77B4" />
-									<option label="Black" value="black" />
-								</dropdown>
-							</frame>
-							<spinbox label="Base Text Size" id="bn_txt_size" initial="12" min="8" max="30" />
-						</column>
-					</tab>
-					<tab label="Output &amp; Export" id="tab_OtptExpr">
-						<column id="clm_fGDGDDPNGP">
-							<frame label="Graphics Device" id="frm_GrphcsDv">
-								<dropdown id="bn_dev_type" label="Device type">
-									<option label="PNG" value="PNG" checked="true" />
-									<option label="SVG" value="SVG" />
-								</dropdown>
-								<row id="row_sW10241004">
-									<spinbox label="Width (px)" id="bn_dev_w" initial="1024" min="100" max="4000" />
-									<spinbox label="Height (px)" id="bn_dev_h" initial="1024" min="100" max="4000" />
-								</row>
-								<column id="clm_sR15050600">
-									<spinbox label="Resolution (ppi)" id="bn_dev_res" initial="150" min="50" max="600" />
-									<dropdown id="bn_dev_bg" label="Background">
-										<option label="Transparent" value="transparent" checked="true" />
-										<option label="White" value="white" />
-									</dropdown>
-								</column>
-							</frame>
-							<saveobject label="Save Plot Object" checkable="true" checked="true" initial="p_big_number" id="bn_save" />
-							<preview label="Preview" id="bn_preview" />
-						</column>
-					</tab>
-				</tabbook>
-			</column>
-		</row>
+		<column id="clm_tCCLV91CTM">
+			<tabbook>
+				<tab label="Content" id="tab_Content">
+					<column id="clm_iLV91CTMTS">
+						<input label="Large Value" id="bn_val" initial="91%" />
+						<input label="Context Text" id="bn_text" initial="summary text here" />
+						<input label="Main Title" id="bn_title" />
+						<input label="Subtitle" id="bn_subtitle" />
+					</column>
+				</tab>
+				<tab label="Options" id="tab_Options">
+					<column id="clm_dFCSWDR941">
+						<dropdown id="bn_col_focus" label="Focus Color">
+							<option label="SWD Red (#941100)" value="#941100" />
+							<option label="SWD Blue (#1F77B4)" value="#1F77B4" />
+							<option label="SWD Orange (#FF7F0E)" value="#FF7F0E" checked="true" />
+							<option label="SWD Green (#2CA02C)" value="#2CA02C" />
+							<option label="SWD Purple (#9467BD)" value="#9467BD" />
+							<option label="SWD Teal (#17BECF)" value="#17BECF" />
+						</dropdown>
+						<spinbox label="Base text size" id="bn_txt_size" initial="12" min="8" max="30" />
+					</column>
+				</tab>
+				<tab label="Output Device" id="tab_OutptDvc">
+					<column id="clm_dDPNGPNGSV">
+						<dropdown id="bn_device_type" label="Device type">
+							<option label="PNG" value="PNG" checked="true" />
+							<option label="SVG" value="SVG" />
+						</dropdown>
+						<spinbox label="Width (px)" id="bn_dev_width" initial="1024" min="100" max="4000" />
+						<spinbox label="Height (px)" id="bn_dev_height" initial="724" min="100" max="4000" />
+						<spinbox label="Resolution (ppi)" id="bn_dev_res" initial="150" min="50" max="600" />
+						<dropdown id="bn_dev_bg" label="Background">
+							<option label="Transparent" value="transparent" checked="true" />
+							<option label="White" value="white" />
+						</dropdown>
+						<stretch />
+						<saveobject label="Save Plot Object to Workspace" checkable="true" checked="true" initial="p_big_number" id="bn_save" />
+					</column>
+				</tab>
+			</tabbook>
+			<preview label="Preview" id="preview_bn" />
+		</column>
 	</dialog>
 </document>

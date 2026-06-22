@@ -1,6 +1,13 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: rk.storytelling.survey 0.1.1\n"
+"Report-Msgid-Bugs-To: alfonso.cano@correo.buap.mx\n"
+"POT-Creation-Date: 2026-06-21 21:55-0600\n"
+"PO-Revision-Date: 2026-06-21 21:55-0600\n"
+"Last-Translator: \n"
+"Language-Team: Spanish\n"
 "Language: es\n"
+"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
@@ -14,16 +21,37 @@ msgid "Storytelling with Data"
 msgstr "Storytelling con Datos"
 
 msgid "Survey Line Graph"
-msgstr "Gráfico de Líneas (Encuesta)"
+msgstr "Gráfico de Líneas para Encuestas"
 
-msgid "Survey Means Graph"
-msgstr "Gráfico de Medias (Encuesta)"
+msgid "SWD Survey: Line Graph"
+msgstr "Encuesta SWD: Gráfico de Líneas"
 
-msgid "Survey Bar Chart"
-msgstr "Gráfico de Barras (Encuesta)"
+msgid "svyby objects"
+msgstr "Objetos svyby"
 
-msgid "Big Number Summary"
-msgstr "Resumen de Número Grande"
+msgid "svyby Object (Data Frame)"
+msgstr "Objeto svyby (Marco de Datos)"
+
+msgid "X Axis"
+msgstr "Eje X"
+
+msgid "Grouping variable (optional, for multiple lines)"
+msgstr "Variable de agrupación (opcional, para múltiples líneas)"
+
+msgid "Estimate column(s)"
+msgstr "Columna(s) de estimación"
+
+msgid "SE column(s)"
+msgstr "Columna(s) de EE (Error Estándar)"
+
+msgid "Highlight Name (Focus)"
+msgstr "Nombre a Resaltar (Foco)"
+
+msgid "Label Nudge X"
+msgstr "Ajuste X de Etiqueta (Nudge)"
+
+msgid "CI level (%)"
+msgstr "Nivel de IC (%)"
 
 msgid "Data"
 msgstr "Datos"
@@ -31,17 +59,143 @@ msgstr "Datos"
 msgid "Options"
 msgstr "Opciones"
 
+msgid "Focus Color"
+msgstr "Color de Foco"
+
+msgid "SWD Red (#941100)"
+msgstr "Rojo SWD (#941100)"
+
+msgid "SWD Blue (#1F77B4)"
+msgstr "Azul SWD (#1F77B4)"
+
+msgid "SWD Orange (#FF7F0E)"
+msgstr "Naranja SWD (#FF7F0E)"
+
+msgid "SWD Green (#2CA02C)"
+msgstr "Verde SWD (#2CA02C)"
+
+msgid "SWD Purple (#9467BD)"
+msgstr "Púrpura SWD (#9467BD)"
+
+msgid "SWD Teal (#17BECF)"
+msgstr "Verde Azulado SWD (#17BECF)"
+
+msgid "Labels"
+msgstr "Etiquetas"
+
+msgid "Plot Title"
+msgstr "Título del Gráfico"
+
+msgid "Plot Subtitle"
+msgstr "Subtítulo del Gráfico"
+
+msgid "X-axis Label (blank for auto)"
+msgstr "Etiqueta del eje X (en blanco para auto)"
+
+msgid "Wrap X-axis Label at (chars, 0 to disable)"
+msgstr "Ajustar Etiqueta X en (caracteres, 0 desactiva)"
+
+msgid "Y-axis Label"
+msgstr "Etiqueta del eje Y"
+
+msgid "Wrap Y-axis Label at (chars, 0 to disable)"
+msgstr "Ajustar Etiqueta Y en (caracteres, 0 desactiva)"
+
+msgid "Legend Title (blank for auto)"
+msgstr "Título de Leyenda (en blanco para auto)"
+
+msgid "Remove text from Legend Labels (e.g. 'VarName')"
+msgstr "Eliminar texto de las Etiquetas de Leyenda (ej. 'NombreVar')"
+
+msgid "Wrap Legend Title at (chars, 0 to disable)"
+msgstr "Ajustar Título de Leyenda en (caracteres, 0 desactiva)"
+
+msgid "Wrap Legend Labels at (chars, 0 to disable)"
+msgstr "Ajustar Etiquetas de Leyenda en (caracteres, 0 desactiva)"
+
+msgid "Plot Caption"
+msgstr "Nota/Fuente del Gráfico"
+
 msgid "Theme"
 msgstr "Tema"
 
-msgid "Output & Export"
-msgstr "Salida y Exportación"
+msgid "Base text size"
+msgstr "Tamaño base del texto"
 
-msgid "Content"
-msgstr "Contenido"
+msgid "Legend Position"
+msgstr "Posición de Leyenda"
 
-msgid "Text Labels"
-msgstr "Etiquetas de Texto"
+msgid "Top"
+msgstr "Arriba"
+
+msgid "Bottom"
+msgstr "Abajo"
+
+msgid "Left"
+msgstr "Izquierda"
+
+msgid "Right"
+msgstr "Derecha"
+
+msgid "None"
+msgstr "Ninguno"
+
+msgid "X-Axis Text"
+msgstr "Texto del Eje X"
+
+msgid "Angle"
+msgstr "Ángulo"
+
+msgid "H-Just"
+msgstr "H-Just (Horizontal)"
+
+msgid "V-Just"
+msgstr "V-Just (Vertical)"
+
+msgid "X-Axis Value Labels"
+msgstr "Etiquetas de Valores del Eje X"
+
+msgid "Wrap at (chars)"
+msgstr "Ajustar en (caracteres)"
+
+msgid "Y-Axis Value Labels"
+msgstr "Etiquetas de Valores del Eje Y"
+
+msgid "Output Device"
+msgstr "Dispositivo de Salida"
+
+msgid "Device type"
+msgstr "Tipo de dispositivo"
+
+msgid "Width (px)"
+msgstr "Ancho (px)"
+
+msgid "Height (px)"
+msgstr "Alto (px)"
+
+msgid "Resolution (ppi)"
+msgstr "Resolución (ppi)"
+
+msgid "Background"
+msgstr "Fondo"
+
+msgid "Transparent"
+msgstr "Transparente"
+
+msgid "White"
+msgstr "Blanco"
+
+msgid "Big Number Summary"
+msgstr "Resumen de Gran Número"
+
+msgid "SWD: Big Number Summary"
+msgstr "SWD: Resumen de Gran Número"
+
+msgid "Large Value"
+msgstr "Valor Grande"
+
+msgid "Context Text"
+msgstr "Texto de Contexto"
 
 msgid "Main Title"
 msgstr "Título Principal"
@@ -49,74 +203,5 @@ msgstr "Título Principal"
 msgid "Subtitle"
 msgstr "Subtítulo"
 
-msgid "X-Axis Label"
-msgstr "Etiqueta Eje X"
-
-msgid "Y-Axis Label"
-msgstr "Etiqueta Eje Y"
-
-msgid "Caption"
-msgstr "Nota al Pie"
-
-msgid "Rotation Adjustment"
-msgstr "Ajuste de Rotación"
-
-msgid "X-Title Angle"
-msgstr "Ángulo Título X"
-
-msgid "Y-Title Angle"
-msgstr "Ángulo Título Y"
-
-msgid "X-Values Angle"
-msgstr "Ángulo Valores X"
-
-msgid "Y-Values Angle"
-msgstr "Ángulo Valores Y"
-
-msgid "Legend"
-msgstr "Leyenda"
-
-msgid "Show Legend"
-msgstr "Mostrar Leyenda"
-
-msgid "Custom Legend Title"
-msgstr "Título de Leyenda Personalizado"
-
-msgid "Focus Style"
-msgstr "Estilo de Enfoque"
-
-msgid "Focus Color"
-msgstr "Color de Enfoque"
-
-msgid "Flip Coordinates"
-msgstr "Invertir Coordenadas"
-
-msgid "Frequency type"
-msgstr "Tipo de Frecuencia"
-
-msgid "Absolute (Counts)"
-msgstr "Absoluta (Conteos)"
-
-msgid "Relative (%)"
-msgstr "Relativa (%)"
-
-msgid "Bar position"
-msgstr "Posición de Barras"
-
-msgid "Stack"
-msgstr "Apiladas"
-
-msgid "Dodge"
-msgstr "Agrupadas"
-
-msgid "Fill (100% Stacked)"
-msgstr "Llenado (100% Apiladas)"
-
-msgid "X-axis Ordering"
-msgstr "Orden del Eje X"
-
-msgid "Order X-axis by frequency"
-msgstr "Ordenar Eje X por frecuencia"
-
-msgid "Invert final order"
-msgstr "Invertir orden final"
+msgid "Content"
+msgstr "Contenido"

@@ -19,24 +19,21 @@
 		</setting>
 		<setting id="bn_text">
 		</setting>
-		<caption id="tab_Theme" />
-		<caption id="frm_TextLbls" />
 		<setting id="bn_title">
 		</setting>
 		<setting id="bn_subtitle">
 		</setting>
-		<caption id="frm_Colors" />
+		<caption id="tab_Options" />
 		<setting id="bn_col_focus">
 		</setting>
 		<setting id="bn_txt_size">
 		</setting>
-		<caption id="tab_OtptExpr" />
-		<caption id="frm_GrphcsDv" />
-		<setting id="bn_dev_type">
+		<caption id="tab_OutptDvc" />
+		<setting id="bn_device_type">
 		</setting>
-		<setting id="bn_dev_w">
+		<setting id="bn_dev_width">
 		</setting>
-		<setting id="bn_dev_h">
+		<setting id="bn_dev_height">
 		</setting>
 		<setting id="bn_dev_res">
 		</setting>

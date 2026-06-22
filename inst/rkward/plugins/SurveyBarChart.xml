@@ -20,109 +20,104 @@
 	</logic>
 	<dialog label="SWD Survey: Bar Chart">
 		<row id="row_vDDSDOXAGF">
-			<varselector id="b_vs" />
+			<varselector id="vs_bar" />
 			<column id="clm_tDDSDOXAGF">
 				<tabbook>
 					<tab label="Data" id="tab_Data">
 						<column id="clm_vSDOXAGFSH">
-							<varslot id="b_svy" label="Survey Design Object" source="b_vs" classes="survey.design" required="true" />
-							<varslot id="b_x" label="X Axis (Groups)" source="b_vs" required="true" />
-							<varslot id="b_fill" label="Fill (Stack)" source="b_vs" required="true" />
+							<varslot id="b_svy_object" label="Survey Design Object" source="vs_bar" classes="survey.design" required="true" />
+							<varslot id="b_xaxis_var" label="X Axis (Groups)" source="vs_bar" required="true" />
+							<varslot id="b_fill_var" label="Fill (Stack)" source="vs_bar" required="true" />
 							<input label="Highlight Stack Name" id="b_focus_val" />
-							<row id="row_dFACRBSDF1">
-								<dropdown id="b_freq_type" label="Frequency type">
-									<option label="Absolute (Counts)" value="abs" checked="true" />
-									<option label="Relative (%)" value="rel" />
-								</dropdown>
-								<dropdown id="b_bar_pos" label="Bar position">
-									<option label="Stack" value="stack" checked="true" />
-									<option label="Dodge" value="dodge" />
-									<option label="Fill (100% Stacked)" value="fill" />
-								</dropdown>
-							</row>
-							<checkbox id="b_flip" label="Flip Coordinates" value="1" />
-							<frame label="X-axis Ordering" id="frm_XxsOrdrn">
-								<column id="clm_chckbOX1I1">
-									<checkbox id="b_order_freq" label="Order X-axis by frequency" value="1" />
-									<checkbox id="b_invert" label="Invert final order" value="1" />
-								</column>
-							</frame>
 						</column>
 					</tab>
 					<tab label="Options" id="tab_Options">
-						<column id="clm_fLLSL1CLTP">
-							<frame label="Legend" id="frm_Legend">
-								<checkbox id="b_show_legend" label="Show Legend" value="1" />
-								<input label="Custom Legend Title" id="b_legend_title" />
-								<dropdown id="b_legend_pos" label="Position">
-									<option label="Top" value="top" checked="true" />
-									<option label="Bottom" value="bottom" />
-									<option label="Left" value="left" />
-									<option label="Right" value="right" />
-								</dropdown>
+						<column id="clm_dFCSWDR941">
+							<dropdown id="b_col_focus" label="Focus Color">
+								<option label="SWD Red (#941100)" value="#941100" checked="true" />
+								<option label="SWD Blue (#1F77B4)" value="#1F77B4" />
+								<option label="SWD Orange (#FF7F0E)" value="#FF7F0E" />
+								<option label="SWD Green (#2CA02C)" value="#2CA02C" />
+								<option label="SWD Purple (#9467BD)" value="#9467BD" />
+								<option label="SWD Teal (#17BECF)" value="#17BECF" />
+							</dropdown>
+							<dropdown id="b_freq_type" label="Frequency type">
+								<option label="Absolute (Counts)" value="abs" checked="true" />
+								<option label="Relative (%)" value="rel" />
+							</dropdown>
+							<dropdown id="b_bar_pos" label="Bar position">
+								<option label="Stack" value="stack" checked="true" />
+								<option label="Dodge" value="dodge" />
+								<option label="Fill (100% Stacked)" value="fill" />
+							</dropdown>
+							<frame label="X-axis Ordering" id="frm_XxsOrdrn">
+								<column id="clm_chckbOX1I1">
+									<checkbox id="b_order_x_est" label="Order X-axis by estimate value" value="1" />
+									<checkbox id="b_invert_order" label="Invert final order" value="1" />
+								</column>
 							</frame>
-							<stretch />
-							<frame label="Rotation Adjustment" id="frm_RttnAdjs">
-								<row id="row_sXTA9090YT">
-									<spinbox label="X-Title Angle" id="b_x_title_angle" min="-90" max="90" />
-									<spinbox label="Y-Title Angle" id="b_y_title_angle" min="-90" max="90" />
-								</row>
-								<row id="row_sXVA9090YV">
-									<spinbox label="X-Value Angle" id="b_x_angle" min="-90" max="90" />
-									<spinbox label="Y-Value Angle" id="b_y_angle" min="-90" max="90" />
-								</row>
-							</frame>
+							<checkbox id="b_cbox_flip" label="Flip coordinates" value="1" />
+						</column>
+					</tab>
+					<tab label="Labels" id="tab_Labels">
+						<column id="clm_iPTPSXLWXL">
+							<input label="Plot Title" id="b_plot_title" />
+							<input label="Plot Subtitle" id="b_plot_subtitle" />
+							<input label="X-axis Label (blank for auto)" id="b_plot_xlab" />
+							<spinbox label="Wrap X-axis Label at (chars, 0 to disable)" id="b_plot_xlab_wrap" min="0" max="100" />
+							<input label="Y-axis Label" id="b_plot_ylab" />
+							<spinbox label="Wrap Y-axis Label at (chars, 0 to disable)" id="b_plot_ylab_wrap" min="0" max="100" />
+							<input label="Legend Title (blank for auto)" id="b_plot_legend_title" />
+							<input label="Remove text from Legend Labels (e.g. 'VarName')" id="b_clean_legend_prefix" />
+							<spinbox label="Wrap Legend Title at (chars, 0 to disable)" id="b_legend_title_wrap_width" initial="20" min="0" max="100" />
+							<spinbox label="Wrap Legend Labels at (chars, 0 to disable)" id="b_legend_wrap_width" initial="20" min="0" max="100" />
+							<input label="Plot Caption" id="b_plot_caption" />
 						</column>
 					</tab>
 					<tab label="Theme" id="tab_Theme">
-						<column id="clm_fTLTLMTSXA">
-							<frame label="Text Labels" id="frm_TextLbls">
-								<input label="Main Title" id="b_title" />
-								<input label="Subtitle" id="b_subtitle" />
-								<row id="row_inptXALYAL">
-									<input label="X-Axis Label" id="b_xlab" />
-									<input label="Y-Axis Label" id="b_ylab" />
+						<column id="clm_sB12830LPT">
+							<spinbox label="Base text size" id="b_theme_base_size" initial="12" min="8" max="30" />
+							<dropdown id="b_theme_legend_pos" label="Legend Position">
+								<option label="Top" value="top" checked="true" />
+								<option label="Bottom" value="bottom" />
+								<option label="Left" value="left" />
+								<option label="Right" value="right" />
+								<option label="None" value="none" />
+							</dropdown>
+							<frame label="X-Axis Text" id="frm_XAxisTxt">
+								<row id="row_sA9090HJ05">
+									<spinbox label="Angle" id="b_theme_x_angle" min="-90" max="90" />
+									<spinbox label="H-Just" id="b_theme_x_hjust" initial="0.5" min="0" max="1" />
+									<spinbox label="V-Just" id="b_theme_x_vjust" initial="0.5" min="0" max="1" />
 								</row>
-								<input label="Caption" id="b_caption" />
 							</frame>
-							<frame label="Focus Color" id="frm_FocusClr">
-								<dropdown id="b_col_focus" label="Color">
-									<option label="SWD Red (#941100)" value="#941100" checked="true" />
-									<option label="SWD Blue (#1F77B4)" value="#1F77B4" />
-									<option label="SWD Orange (#FF7F0E)" value="#FF7F0E" />
-									<option label="SWD Green (#2CA02C)" value="#2CA02C" />
-									<option label="SWD Purple (#9467BD)" value="#9467BD" />
-									<option label="SWD Teal (#17BECF)" value="#17BECF" />
-									<option label="Black" value="black" />
-								</dropdown>
-								<spinbox label="Base Text Size" id="b_txt_size" initial="12" min="8" max="30" />
+							<frame label="X-Axis Value Labels" id="frm_XAxsVlLb">
+								<spinbox label="Wrap at (chars)" id="b_theme_x_val_wrap" min="0" max="100" />
+							</frame>
+							<frame label="Y-Axis Value Labels" id="frm_YAxsVlLb">
+								<spinbox label="Wrap at (chars)" id="b_theme_y_val_wrap" min="0" max="100" />
 							</frame>
 						</column>
 					</tab>
-					<tab label="Output &amp; Export" id="tab_OtptExpr">
-						<column id="clm_fGDGDDPNGP">
-							<frame label="Graphics Device" id="frm_GrphcsDv">
-								<dropdown id="b_dev_type" label="Device type">
-									<option label="PNG" value="PNG" checked="true" />
-									<option label="SVG" value="SVG" />
-								</dropdown>
-								<row id="row_sW10241004">
-									<spinbox label="Width (px)" id="b_dev_w" initial="1024" min="100" max="4000" />
-									<spinbox label="Height (px)" id="b_dev_h" initial="1024" min="100" max="4000" />
-								</row>
-								<column id="clm_sR15050600">
-									<spinbox label="Resolution (ppi)" id="b_dev_res" initial="150" min="50" max="600" />
-									<dropdown id="b_dev_bg" label="Background">
-										<option label="Transparent" value="transparent" checked="true" />
-										<option label="White" value="white" />
-									</dropdown>
-								</column>
-							</frame>
-							<saveobject label="Save Plot Object" checkable="true" checked="true" initial="p_svy_bar" id="b_save" />
-							<preview label="Preview" id="b_preview" />
+					<tab label="Output Device" id="tab_OutptDvc">
+						<column id="clm_dDPNGPNGSV">
+							<dropdown id="b_device_type" label="Device type">
+								<option label="PNG" value="PNG" checked="true" />
+								<option label="SVG" value="SVG" />
+							</dropdown>
+							<spinbox label="Width (px)" id="b_dev_width" initial="1024" min="100" max="4000" />
+							<spinbox label="Height (px)" id="b_dev_height" initial="724" min="100" max="4000" />
+							<spinbox label="Resolution (ppi)" id="b_dev_res" initial="150" min="50" max="600" />
+							<dropdown id="b_dev_bg" label="Background">
+								<option label="Transparent" value="transparent" checked="true" />
+								<option label="White" value="white" />
+							</dropdown>
+							<stretch />
+							<saveobject label="Save Plot Object to Workspace" checkable="true" checked="true" initial="p_svy_bar" id="b_save" />
 						</column>
 					</tab>
 				</tabbook>
+				<preview label="Preview" id="preview_bar" />
 			</column>
 		</row>
 	</dialog>

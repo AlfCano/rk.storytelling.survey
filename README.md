@@ -1,11 +1,16 @@
 # rk.storytelling.survey: High-Impact Visualization for Complex Survey Designs
 
-![Version](https://img.shields.io/badge/Version-0.1.0-blue.svg)
+![Version](https://img.shields.io/badge/Version-0.1.1-blue.svg)
 ![License](https://img.shields.io/badge/License-GPLv3-blue.svg)
 ![RKWard](https://img.shields.io/badge/Platform-RKWard-green)
 [![R Linter](https://github.com/AlfCano/rk.storytelling.survey/actions/workflows/lintr.yml/badge.svg)](https://github.com/AlfCano/rk.storytelling.survey)
 
 **rk.storytelling.survey** applies the principles of Cole Nussbaumer Knaflic's *"Storytelling with Data" (SWD)* to complex survey data. By integrating the power of the `survey` and `lemon` packages, it provides a specialized collection of RKWard plugins designed to communicate weighted results (Means and Totals) with clarity, precision, and professional aesthetics.
+
+## 🚀 What's New in Version 0.1.1
+
+*   **Added save object option:** Now it is possible to save the plots to the workspace to export it using `rk.exporter`.
+*   **Added optional grouping varialbe:** Solves blank string error if no grouping variable is selected.
 
 ## 🚀 What's New in Version 0.1.0
 

@@ -4,14 +4,9 @@
 		this code was generated using the rkwarddev package.
 	perhaps don't make changes here, but in the rkwarddev script instead!
 	-->
-	<title>
-		Survey Means Graph
-	</title>
 	<summary>
-		Weighted point estimates with error bars.
 	</summary>
 	<usage>
-		Ideal for cross-sectional comparisons.
 	</usage>
 	<!--
 		<section id="sct_EDITORDE" title="EDIT OR DELETE ME">
@@ -20,57 +15,75 @@
 	-->
 	<settings>
 		<caption id="tab_Data" />
-		<setting id="m_svyby">
+		<setting id="m_svyby_object">
 		</setting>
-		<setting id="m_x">
+		<setting id="m_xaxis_var">
 		</setting>
-		<setting id="m_est">
+		<setting id="m_estimate_vars">
 		</setting>
-		<setting id="m_se">
+		<setting id="m_se_vars">
 		</setting>
 		<setting id="m_focus_val">
 		</setting>
 		<caption id="tab_Options" />
-		<caption id="frm_Legend" />
-		<setting id="m_show_legend">
-		</setting>
-		<setting id="m_legend_title">
-		</setting>
-		<setting id="m_legend_pos">
-		</setting>
-		<caption id="frm_RttnAdjs" />
-		<setting id="m_x_title_angle">
-		</setting>
-		<setting id="m_y_title_angle">
-		</setting>
-		<setting id="m_x_angle">
-		</setting>
-		<setting id="m_y_angle">
-		</setting>
-		<caption id="tab_Theme" />
-		<caption id="frm_TextLbls" />
-		<setting id="m_title">
-		</setting>
-		<setting id="m_subtitle">
-		</setting>
-		<setting id="m_xlab">
-		</setting>
-		<setting id="m_ylab">
-		</setting>
-		<setting id="m_caption">
-		</setting>
-		<caption id="frm_FocusClr" />
 		<setting id="m_col_focus">
 		</setting>
-		<setting id="m_txt_size">
+		<setting id="m_conf_level">
 		</setting>
-		<caption id="tab_OtptExpr" />
-		<caption id="frm_GrphcsDv" />
-		<setting id="m_dev_type">
+		<caption id="frm_XxsOrdrn" />
+		<setting id="m_order_x_est">
 		</setting>
-		<setting id="m_dev_w">
+		<setting id="m_invert_order">
 		</setting>
-		<setting id="m_dev_h">
+		<setting id="m_cbox_flip">
+		</setting>
+		<caption id="tab_Labels" />
+		<setting id="m_plot_title">
+		</setting>
+		<setting id="m_plot_subtitle">
+		</setting>
+		<setting id="m_plot_xlab">
+		</setting>
+		<setting id="m_plot_xlab_wrap">
+		</setting>
+		<setting id="m_plot_ylab">
+		</setting>
+		<setting id="m_plot_ylab_wrap">
+		</setting>
+		<setting id="m_plot_legend_title">
+		</setting>
+		<setting id="m_clean_legend_prefix">
+		</setting>
+		<setting id="m_legend_title_wrap_width">
+		</setting>
+		<setting id="m_legend_wrap_width">
+		</setting>
+		<setting id="m_plot_caption">
+		</setting>
+		<caption id="tab_Theme" />
+		<setting id="m_theme_base_size">
+		</setting>
+		<setting id="m_theme_legend_pos">
+		</setting>
+		<caption id="frm_XAxisTxt" />
+		<setting id="m_theme_x_angle">
+		</setting>
+		<setting id="m_theme_x_hjust">
+		</setting>
+		<setting id="m_theme_x_vjust">
+		</setting>
+		<caption id="frm_XAxsVlLb" />
+		<setting id="m_theme_x_val_wrap">
+		</setting>
+		<caption id="frm_YAxsVlLb" />
+		<setting id="m_theme_y_val_wrap">
+		</setting>
+		<caption id="tab_OutptDvc" />
+		<setting id="m_device_type">
+		</setting>
+		<setting id="m_dev_width">
+		</setting>
+		<setting id="m_dev_height">
 		</setting>
 		<setting id="m_dev_res">
 		</setting>

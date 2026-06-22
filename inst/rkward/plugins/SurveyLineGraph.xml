@@ -20,100 +20,92 @@
 	</logic>
 	<dialog label="SWD Survey: Line Graph">
 		<row id="row_vDDODFXAGE">
-			<varselector id="l_vs" />
+			<varselector id="vs_line" />
 			<column id="clm_tDDODFXAGE">
 				<tabbook>
 					<tab label="Data" id="tab_Data">
 						<column id="clm_vODFXAGESE">
-							<varslot id="l_svyby" label="svyby Object (Data Frame)" source="l_vs" classes="data.frame" required="true" />
-							<varslot id="l_x" label="X Axis" source="l_vs" required="true" />
-							<varslot id="l_grp" label="Grouping variable" source="l_vs" />
-							<varslot id="l_est" label="Estimate column(s)" source="l_vs" required="true" multi="true" />
-							<varslot id="l_se" label="SE column(s)" source="l_vs" required="true" multi="true" />
-							<input label="Highlight Name" id="l_focus_val" />
-							<checkbox id="l_flip" label="Flip Coordinates" value="1" />
-							<spinbox label="CI level (%)" id="l_conf" initial="95" min="1" max="99" />
+							<varslot id="l_svyby_object" label="svyby Object (Data Frame)" source="vs_line" classes="data.frame" required="true" />
+							<varslot id="l_xaxis_var" label="X Axis" source="vs_line" required="true" />
+							<varslot id="l_group_var" label="Grouping variable" source="vs_line" />
+							<varslot id="l_estimate_vars" label="Estimate column(s)" source="vs_line" required="true" multi="true" />
+							<varslot id="l_se_vars" label="SE column(s)" source="vs_line" required="true" multi="true" />
+							<input label="Highlight Name (Focus)" id="l_focus_val" />
 						</column>
 					</tab>
 					<tab label="Options" id="tab_Options">
-						<column id="clm_fLLSL1CLTP">
-							<frame label="Legend" id="frm_Legend">
-								<checkbox id="l_show_legend" label="Show Legend" value="1" />
-								<input label="Custom Legend Title" id="l_legend_title" />
-								<dropdown id="l_legend_pos" label="Position">
-									<option label="Top" value="top" checked="true" />
-									<option label="Bottom" value="bottom" />
-									<option label="Left" value="left" />
-									<option label="Right" value="right" />
-								</dropdown>
-							</frame>
-							<frame label="Label Justification (End of Line)" id="frm_LblJstEL">
-								<row id="row_sRM02501LN">
-									<spinbox label="Right Margin expansion" id="l_expand_r" initial="0.25" min="0" max="1" />
-									<spinbox label="Label Nudge X" id="l_nudge_x" initial="0.5" min="0" max="5" />
-								</row>
-							</frame>
-							<frame label="Rotation Adjustment" id="frm_RttnAdjs">
-								<row id="row_sXTA9090YT">
-									<spinbox label="X-Title Angle" id="l_x_title_angle" min="-90" max="90" />
-									<spinbox label="Y-Title Angle" id="l_y_title_angle" min="-90" max="90" />
-								</row>
-								<row id="row_sXVA9090YV">
-									<spinbox label="X-Value Angle" id="l_x_angle" min="-90" max="90" />
-									<spinbox label="Y-Value Angle" id="l_y_angle" min="-90" max="90" />
-								</row>
-							</frame>
+						<column id="clm_dFCSWDR941">
+							<dropdown id="l_col_focus" label="Focus Color">
+								<option label="SWD Red (#941100)" value="#941100" checked="true" />
+								<option label="SWD Blue (#1F77B4)" value="#1F77B4" />
+								<option label="SWD Orange (#FF7F0E)" value="#FF7F0E" />
+								<option label="SWD Green (#2CA02C)" value="#2CA02C" />
+								<option label="SWD Purple (#9467BD)" value="#9467BD" />
+								<option label="SWD Teal (#17BECF)" value="#17BECF" />
+							</dropdown>
+							<spinbox label="CI level (%)" id="l_conf_level" initial="95" min="1" max="99" />
+							<spinbox label="Label Nudge X" id="l_nudge_x" initial="0.5" min="0" max="5" />
+						</column>
+					</tab>
+					<tab label="Labels" id="tab_Labels">
+						<column id="clm_iPTPSXLWXL">
+							<input label="Plot Title" id="l_plot_title" />
+							<input label="Plot Subtitle" id="l_plot_subtitle" />
+							<input label="X-axis Label (blank for auto)" id="l_plot_xlab" />
+							<spinbox label="Wrap X-axis Label at (chars, 0 to disable)" id="l_plot_xlab_wrap" min="0" max="100" />
+							<input label="Y-axis Label" id="l_plot_ylab" />
+							<spinbox label="Wrap Y-axis Label at (chars, 0 to disable)" id="l_plot_ylab_wrap" min="0" max="100" />
+							<input label="Legend Title (blank for auto)" id="l_plot_legend_title" />
+							<input label="Remove text from Legend Labels (e.g. 'VarName')" id="l_clean_legend_prefix" />
+							<spinbox label="Wrap Legend Title at (chars, 0 to disable)" id="l_legend_title_wrap_width" initial="20" min="0" max="100" />
+							<spinbox label="Wrap Legend Labels at (chars, 0 to disable)" id="l_legend_wrap_width" initial="20" min="0" max="100" />
+							<input label="Plot Caption" id="l_plot_caption" />
 						</column>
 					</tab>
 					<tab label="Theme" id="tab_Theme">
-						<column id="clm_fTLTLMTSXA">
-							<frame label="Text Labels" id="frm_TextLbls">
-								<input label="Main Title" id="l_title" />
-								<input label="Subtitle" id="l_subtitle" />
-								<row id="row_inptXALYAL">
-									<input label="X-Axis Label" id="l_xlab" />
-									<input label="Y-Axis Label" id="l_ylab" />
+						<column id="clm_sB12830LPT">
+							<spinbox label="Base text size" id="l_theme_base_size" initial="12" min="8" max="30" />
+							<dropdown id="l_theme_legend_pos" label="Legend Position">
+								<option label="Top" value="top" checked="true" />
+								<option label="Bottom" value="bottom" />
+								<option label="Left" value="left" />
+								<option label="Right" value="right" />
+								<option label="None" value="none" />
+							</dropdown>
+							<frame label="X-Axis Text" id="frm_XAxisTxt">
+								<row id="row_sA9090HJ05">
+									<spinbox label="Angle" id="l_theme_x_angle" min="-90" max="90" />
+									<spinbox label="H-Just" id="l_theme_x_hjust" initial="0.5" min="0" max="1" />
+									<spinbox label="V-Just" id="l_theme_x_vjust" initial="0.5" min="0" max="1" />
 								</row>
-								<input label="Caption" id="l_caption" />
 							</frame>
-							<frame label="Focus Color" id="frm_FocusClr">
-								<dropdown id="l_col_focus" label="Color">
-									<option label="SWD Red (#941100)" value="#941100" checked="true" />
-									<option label="SWD Blue (#1F77B4)" value="#1F77B4" />
-									<option label="SWD Orange (#FF7F0E)" value="#FF7F0E" />
-									<option label="SWD Green (#2CA02C)" value="#2CA02C" />
-									<option label="SWD Purple (#9467BD)" value="#9467BD" />
-									<option label="SWD Teal (#17BECF)" value="#17BECF" />
-									<option label="Black" value="black" />
-								</dropdown>
-								<spinbox label="Base Text Size" id="l_txt_size" initial="12" min="8" max="30" />
+							<frame label="X-Axis Value Labels" id="frm_XAxsVlLb">
+								<spinbox label="Wrap at (chars)" id="l_theme_x_val_wrap" min="0" max="100" />
+							</frame>
+							<frame label="Y-Axis Value Labels" id="frm_YAxsVlLb">
+								<spinbox label="Wrap at (chars)" id="l_theme_y_val_wrap" min="0" max="100" />
 							</frame>
 						</column>
 					</tab>
-					<tab label="Output &amp; Export" id="tab_OtptExpr">
-						<column id="clm_fGDGDDPNGP">
-							<frame label="Graphics Device" id="frm_GrphcsDv">
-								<dropdown id="l_dev_type" label="Device type">
-									<option label="PNG" value="PNG" checked="true" />
-									<option label="SVG" value="SVG" />
-								</dropdown>
-								<row id="row_sW10241004">
-									<spinbox label="Width (px)" id="l_dev_w" initial="1024" min="100" max="4000" />
-									<spinbox label="Height (px)" id="l_dev_h" initial="1024" min="100" max="4000" />
-								</row>
-								<column id="clm_sR15050600">
-									<spinbox label="Resolution (ppi)" id="l_dev_res" initial="150" min="50" max="600" />
-									<dropdown id="l_dev_bg" label="Background">
-										<option label="Transparent" value="transparent" checked="true" />
-										<option label="White" value="white" />
-									</dropdown>
-								</column>
-							</frame>
-							<saveobject label="Save Plot Object" checkable="true" checked="true" initial="p_svy_line" id="l_save" />
-							<preview label="Preview" id="l_preview" />
+					<tab label="Output Device" id="tab_OutptDvc">
+						<column id="clm_dDPNGPNGSV">
+							<dropdown id="l_device_type" label="Device type">
+								<option label="PNG" value="PNG" checked="true" />
+								<option label="SVG" value="SVG" />
+							</dropdown>
+							<spinbox label="Width (px)" id="l_dev_width" initial="1024" min="100" max="4000" />
+							<spinbox label="Height (px)" id="l_dev_height" initial="724" min="100" max="4000" />
+							<spinbox label="Resolution (ppi)" id="l_dev_res" initial="150" min="50" max="600" />
+							<dropdown id="l_dev_bg" label="Background">
+								<option label="Transparent" value="transparent" checked="true" />
+								<option label="White" value="white" />
+							</dropdown>
+							<stretch />
+							<saveobject label="Save Plot Object to Workspace" checkable="true" checked="true" initial="p_svy_line" id="l_save" />
 						</column>
 					</tab>
 				</tabbook>
+				<preview label="Preview" id="preview_line" />
 			</column>
 		</row>
 	</dialog>

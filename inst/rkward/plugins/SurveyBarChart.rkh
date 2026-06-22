@@ -4,14 +4,9 @@
 		this code was generated using the rkwarddev package.
 	perhaps don't make changes here, but in the rkwarddev script instead!
 	-->
-	<title>
-		Survey Bar Chart
-	</title>
 	<summary>
-		100% stacked weighted bars.
 	</summary>
 	<usage>
-		Highlights a specific category in the stack.
 	</usage>
 	<!--
 		<section id="sct_EDITORDE" title="EDIT OR DELETE ME">
@@ -20,66 +15,75 @@
 	-->
 	<settings>
 		<caption id="tab_Data" />
-		<setting id="b_svy">
+		<setting id="b_svy_object">
 		</setting>
-		<setting id="b_x">
+		<setting id="b_xaxis_var">
 		</setting>
-		<setting id="b_fill">
+		<setting id="b_fill_var">
 		</setting>
 		<setting id="b_focus_val">
+		</setting>
+		<caption id="tab_Options" />
+		<setting id="b_col_focus">
 		</setting>
 		<setting id="b_freq_type">
 		</setting>
 		<setting id="b_bar_pos">
 		</setting>
-		<setting id="b_flip">
-		</setting>
 		<caption id="frm_XxsOrdrn" />
-		<setting id="b_order_freq">
+		<setting id="b_order_x_est">
 		</setting>
-		<setting id="b_invert">
+		<setting id="b_invert_order">
 		</setting>
-		<caption id="tab_Options" />
-		<caption id="frm_Legend" />
-		<setting id="b_show_legend">
+		<setting id="b_cbox_flip">
 		</setting>
-		<setting id="b_legend_title">
+		<caption id="tab_Labels" />
+		<setting id="b_plot_title">
 		</setting>
-		<setting id="b_legend_pos">
+		<setting id="b_plot_subtitle">
 		</setting>
-		<caption id="frm_RttnAdjs" />
-		<setting id="b_x_title_angle">
+		<setting id="b_plot_xlab">
 		</setting>
-		<setting id="b_y_title_angle">
+		<setting id="b_plot_xlab_wrap">
 		</setting>
-		<setting id="b_x_angle">
+		<setting id="b_plot_ylab">
 		</setting>
-		<setting id="b_y_angle">
+		<setting id="b_plot_ylab_wrap">
+		</setting>
+		<setting id="b_plot_legend_title">
+		</setting>
+		<setting id="b_clean_legend_prefix">
+		</setting>
+		<setting id="b_legend_title_wrap_width">
+		</setting>
+		<setting id="b_legend_wrap_width">
+		</setting>
+		<setting id="b_plot_caption">
 		</setting>
 		<caption id="tab_Theme" />
-		<caption id="frm_TextLbls" />
-		<setting id="b_title">
+		<setting id="b_theme_base_size">
 		</setting>
-		<setting id="b_subtitle">
+		<setting id="b_theme_legend_pos">
 		</setting>
-		<setting id="b_xlab">
+		<caption id="frm_XAxisTxt" />
+		<setting id="b_theme_x_angle">
 		</setting>
-		<setting id="b_ylab">
+		<setting id="b_theme_x_hjust">
 		</setting>
-		<setting id="b_caption">
+		<setting id="b_theme_x_vjust">
 		</setting>
-		<caption id="frm_FocusClr" />
-		<setting id="b_col_focus">
+		<caption id="frm_XAxsVlLb" />
+		<setting id="b_theme_x_val_wrap">
 		</setting>
-		<setting id="b_txt_size">
+		<caption id="frm_YAxsVlLb" />
+		<setting id="b_theme_y_val_wrap">
 		</setting>
-		<caption id="tab_OtptExpr" />
-		<caption id="frm_GrphcsDv" />
-		<setting id="b_dev_type">
+		<caption id="tab_OutptDvc" />
+		<setting id="b_device_type">
 		</setting>
-		<setting id="b_dev_w">
+		<setting id="b_dev_width">
 		</setting>
-		<setting id="b_dev_h">
+		<setting id="b_dev_height">
 		</setting>
 		<setting id="b_dev_res">
 		</setting>

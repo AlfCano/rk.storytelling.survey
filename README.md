@@ -1,11 +1,17 @@
 # rk.storytelling.survey: High-Impact Visualization for Complex Survey Designs
 
-![Version](https://img.shields.io/badge/Version-0.1.1-blue.svg)
+![Version](https://img.shields.io/badge/Version-0.1.2-blue.svg)
 ![License](https://img.shields.io/badge/License-GPLv3-blue.svg)
 ![RKWard](https://img.shields.io/badge/Platform-RKWard-green)
 [![R Linter](https://github.com/AlfCano/rk.storytelling.survey/actions/workflows/lintr.yml/badge.svg)](https://github.com/AlfCano/rk.storytelling.survey)
 
 **rk.storytelling.survey** applies the principles of Cole Nussbaumer Knaflic's *"Storytelling with Data" (SWD)* to complex survey data. By integrating the power of the `survey` and `lemon` packages, it provides a specialized collection of RKWard plugins designed to communicate weighted results (Means and Totals) with clarity, precision, and professional aesthetics.
+
+## What's New in Version 0.1.2
+
+*   **Fixed Means Graph Estimate Ordering:** Fixed an unquoted column indexing bug (`plot_data[[est]]`) in **SWD Survey: Means Graph** that prevented `Order X-axis by estimate value` from working.
+*   **Robust Mean & Factor Sorting:** Explicitly orders categories by the **mean** while ignoring `NA`s (`na.rm = TRUE`), and strips `ordered` factor attributes prior to reordering.
+
 
 ## 🚀 What's New in Version 0.1.1
 

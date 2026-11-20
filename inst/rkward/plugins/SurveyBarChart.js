@@ -75,22 +75,22 @@ function calculate(is_preview){
   
     var svy = getValue("b_svy_object");
     if(!svy) return;
-    var x = getColumnName(getValue("b_xaxis_var")); 
-    var fill = getColumnName(getValue("b_fill_var")); 
+    var x = getColumnName(getValue("b_xaxis_var"));
+    var fill = getColumnName(getValue("b_fill_var"));
     var focus = getValue("b_focus_val");
-    var freq = getValue("b_freq_type"); 
+    var freq = getValue("b_freq_type");
     var pos = getValue("b_bar_pos");
 
     echo("tab <- as.data.frame(survey::svytable(~" + x + "+" + fill + ", design = " + svy + "))\n");
     echo("tab <- tab %>% dplyr::group_by(" + x + ") %>% dplyr::mutate(Prop = Freq / sum(Freq)) %>% dplyr::ungroup()\n");
 
-    if (getValue("b_order_x_est") == "1") { 
-        echo("tab[[\"" + x + "\"]] <- forcats::fct_reorder(as.factor(tab[[\"" + x + "\"]]), tab$Freq, .fun = sum)\n"); 
+    if (getValue("b_order_x_est") == "1") {
+        echo("tab[[\"" + x + "\"]] <- forcats::fct_reorder(as.factor(tab[[\"" + x + "\"]]), tab$Freq, .fun = sum)\n");
     } else {
         echo("tab[[\"" + x + "\"]] <- as.factor(tab[[\"" + x + "\"]])\n");
     }
-    if (getValue("b_invert_order") == "1") { 
-        echo("tab[[\"" + x + "\"]] <- forcats::fct_rev(tab[[\"" + x + "\"]])\n"); 
+    if (getValue("b_invert_order") == "1") {
+        echo("tab[[\"" + x + "\"]] <- forcats::fct_rev(tab[[\"" + x + "\"]])\n");
     }
 
     echo("focus_col <- \"" + getSafeColor("b_col_focus", "#941100") + "\"\n");
@@ -153,14 +153,14 @@ function calculate(is_preview){
       }
 
       echo("p <- p + ggplot2::theme_minimal(base_size = " + getValue("b_theme_base_size") + ")\n");
-      
+
       var theme_list = [];
       theme_list.push("plot.title.position = \"plot\"");
       theme_list.push("panel.grid.minor = ggplot2::element_blank()");
       theme_list.push("panel.grid.major.x = ggplot2::element_blank()");
       theme_list.push("axis.line = ggplot2::element_line(color=\"gray40\")");
       theme_list.push("legend.position = \"" + getValue("b_theme_legend_pos") + "\"");
-      
+
       var x_angle = getValue("b_theme_x_angle");
       var x_hjust = getValue("b_theme_x_hjust");
       var x_vjust = getValue("b_theme_x_vjust");

@@ -67,20 +67,21 @@ function calculate(is_preview){
    
     var df = getValue("m_svyby_object");
     if(!df) return;
-    var x = getColumnName(getValue("m_xaxis_var")); 
-    var est = getColumnName(getValue("m_estimate_vars")); 
+    var x = getColumnName(getValue("m_xaxis_var"));
+    var est = getColumnName(getValue("m_estimate_vars"));
     var se = getColumnName(getValue("m_se_vars"));
     var focus = getValue("m_focus_val");
     var conf = getValue("m_conf_level") / 100;
-    
+
     echo("ci_multiplier <- qnorm(1 - (1 - " + conf + ") / 2)\n");
     echo("plot_data <- " + df + "\n");
 
     if (getValue("m_order_x_est") == "1") {
-       echo("plot_data[[\"" + x + "\"]] <- forcats::fct_reorder(as.factor(plot_data[[\"" + x + "\"]]), plot_data[[" + est + "]])\n");
+       echo("plot_data[[\"" + x + "\"]] <- suppressWarnings(forcats::fct_reorder(factor(as.character(plot_data[[\"" + x + "\"]]), ordered = FALSE), as.numeric(plot_data[[\"" + est + "\"]]), .fun = function(v) mean(v, na.rm = TRUE)))\n");
     } else {
-       echo("plot_data[[\"" + x + "\"]] <- as.factor(plot_data[[\"" + x + "\"]])\n");
+       echo("plot_data[[\"" + x + "\"]] <- factor(as.character(plot_data[[\"" + x + "\"]]), ordered = FALSE)\n");
     }
+
     if (getValue("m_invert_order") == "1") {
        echo("plot_data[[\"" + x + "\"]] <- forcats::fct_rev(plot_data[[\"" + x + "\"]])\n");
     }
@@ -136,14 +137,14 @@ function calculate(is_preview){
       }
 
       echo("p <- p + ggplot2::theme_minimal(base_size = " + getValue("m_theme_base_size") + ")\n");
-      
+
       var theme_list = [];
       theme_list.push("plot.title.position = \"plot\"");
       theme_list.push("panel.grid.minor = ggplot2::element_blank()");
       theme_list.push("panel.grid.major.x = ggplot2::element_blank()");
       theme_list.push("axis.line = ggplot2::element_line(color=\"gray40\")");
       theme_list.push("legend.position = \"" + getValue("m_theme_legend_pos") + "\"");
-      
+
       var x_angle = getValue("m_theme_x_angle");
       var x_hjust = getValue("m_theme_x_hjust");
       var x_vjust = getValue("m_theme_x_vjust");

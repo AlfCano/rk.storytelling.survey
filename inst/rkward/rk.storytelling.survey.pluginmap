@@ -20,8 +20,8 @@
 		name="rk.storytelling.survey"
 		shortinfo="SWD principles applied to svyby objects with robust coordinate scaling and big numbers."
 		longinfo="SWD principles applied to svyby objects with robust coordinate scaling and big numbers."
-		version="0.1.1"
-		releasedate="2026-06-21"
+		version="0.1.2"
+		releasedate="2026-11-20"
 		url="https://github.com/AlfCano/rk.storytelling.survey"
 		license="GPL (&gt;= 3)"
 	>

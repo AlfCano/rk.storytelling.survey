@@ -83,17 +83,17 @@ function calculate(is_preview){
    
     var df = getValue("l_svyby_object");
     if(!df) return;
-    var x = getColumnName(getValue("l_xaxis_var")); 
+    var x = getColumnName(getValue("l_xaxis_var"));
     var grp = getColumnName(getValue("l_group_var"));
-    var est_cols = getCleanArray("l_estimate_vars"); 
+    var est_cols = getCleanArray("l_estimate_vars");
     var se_cols = getCleanArray("l_se_vars");
-    var focus = getValue("l_focus_val"); 
+    var focus = getValue("l_focus_val");
     var conf = getValue("l_conf_level") / 100;
     var nudge = getValue("l_nudge_x");
 
     echo("ci_multiplier <- qnorm(1 - (1 - " + conf + ") / 2)\n");
     echo("est_dat <- " + df + " %>% dplyr::mutate(rk_internal_id = dplyr::row_number())\n");
-    
+
     // SAFE ID LIST CONSTRUCTION
     var id_vars = [];
     id_vars.push("\"" + x + "\"");
@@ -103,13 +103,13 @@ function calculate(is_preview){
 
     var est_list = est_cols.map(function(v){return "\"" + v + "\""}).join(", ");
     var se_list = se_cols.map(function(v){return "\"" + v + "\""}).join(", ");
-    
+
     echo("piv1 <- est_dat %>% dplyr::select(dplyr::all_of(c(" + id_list + ", " + est_list + "))) %>% tidyr::pivot_longer(cols=dplyr::all_of(c(" + est_list + ")), names_to = \"respuesta\", values_to = \"recuento\")\n");
     echo("piv2 <- est_dat %>% dplyr::select(dplyr::all_of(c(\"rk_internal_id\", " + se_list + "))) %>% tidyr::pivot_longer(cols=dplyr::all_of(c(" + se_list + ")), names_to = \"variable\", values_to = \"se\")\n");
-    
+
     if (est_cols.length == 1) { echo("piv2 <- piv2 %>% dplyr::mutate(respuesta = \"" + est_cols[0] + "\")\n"); }
     else { echo("piv2 <- piv2 %>% dplyr::mutate(respuesta = stringr::str_remove(variable, \"^se\\\\.\"))\n"); }
-    
+
     echo("piv3 <- dplyr::left_join(piv1, piv2, by = c(\"rk_internal_id\", \"respuesta\"))\n");
 
     var clean_prefix = getValue("l_clean_legend_prefix");
@@ -117,14 +117,14 @@ function calculate(is_preview){
 
     echo("piv3[[\"" + x + "\"]] <- as.factor(piv3[[\"" + x + "\"]])\n");
     echo("focus_col <- \"" + getSafeColor("l_col_focus", "#941100") + "\"\n");
-    
+
     var color_aes = (grp !== "") ? grp : "respuesta";
     var interaction_arg = (grp !== "") ? grp + ", respuesta" : "respuesta";
 
     echo("p <- ggplot2::ggplot(piv3, ggplot2::aes(x = " + x + ", y = recuento, color = " + color_aes + ", group = interaction(" + interaction_arg + "))) +\n");
     echo("  ggplot2::geom_ribbon(ggplot2::aes(ymin = recuento - ci_multiplier*se, ymax = recuento + ci_multiplier*se, fill = " + color_aes + "), color = NA, alpha = 0.2) +\n");
     echo("  ggplot2::geom_line(linewidth = 1, na.rm = TRUE) + ggplot2::geom_point(size = 2, na.rm = TRUE)\n");
-    
+
     echo("lvls <- levels(factor(piv3[[\"" + color_aes + "\"]]))\n");
     echo("p <- p + ggplot2::scale_color_manual(values = setNames(ifelse(lvls == \"" + focus + "\", focus_col, \"gray80\"), lvls))\n");
     echo("p <- p + ggplot2::scale_fill_manual(values = setNames(ifelse(lvls == \"" + focus + "\", focus_col, \"gray90\"), lvls))\n");
@@ -176,14 +176,14 @@ function calculate(is_preview){
       }
 
       echo("p <- p + ggplot2::theme_minimal(base_size = " + getValue("l_theme_base_size") + ")\n");
-      
+
       var theme_list = [];
       theme_list.push("plot.title.position = \"plot\"");
       theme_list.push("panel.grid.minor = ggplot2::element_blank()");
       theme_list.push("panel.grid.major.x = ggplot2::element_blank()");
       theme_list.push("axis.line = ggplot2::element_line(color=\"gray40\")");
       theme_list.push("legend.position = \"" + getValue("l_theme_legend_pos") + "\"");
-      
+
       var x_angle = getValue("l_theme_x_angle");
       var x_hjust = getValue("l_theme_x_hjust");
       var x_vjust = getValue("l_theme_x_vjust");

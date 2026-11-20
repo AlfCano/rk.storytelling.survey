@@ -14,7 +14,7 @@ local({
     ),
     about = list(
       desc = "SWD principles applied to svyby objects with robust coordinate scaling and big numbers.",
-      version = "0.1.1",
+      version = "0.1.2",
       url = "https://github.com/AlfCano/rk.storytelling.survey",
       license = "GPL (>= 3)"
     )
@@ -360,10 +360,11 @@ local({
     echo("plot_data <- " + df + "\\n");
 
     if (getValue("m_order_x_est") == "1") {
-       echo("plot_data[[\\"" + x + "\\"]] <- forcats::fct_reorder(as.factor(plot_data[[\\"" + x + "\\"]]), plot_data[[" + est + "]])\\n");
+       echo("plot_data[[\\"" + x + "\\"]] <- suppressWarnings(forcats::fct_reorder(factor(as.character(plot_data[[\\"" + x + "\\"]]), ordered = FALSE), as.numeric(plot_data[[\\"" + est + "\\"]]), .fun = function(v) mean(v, na.rm = TRUE)))\\n");
     } else {
-       echo("plot_data[[\\"" + x + "\\"]] <- as.factor(plot_data[[\\"" + x + "\\"]])\\n");
+       echo("plot_data[[\\"" + x + "\\"]] <- factor(as.character(plot_data[[\\"" + x + "\\"]]), ordered = FALSE)\\n");
     }
+
     if (getValue("m_invert_order") == "1") {
        echo("plot_data[[\\"" + x + "\\"]] <- forcats::fct_rev(plot_data[[\\"" + x + "\\"]])\\n");
     }
@@ -512,5 +513,5 @@ local({
     load = TRUE, overwrite = TRUE, show = FALSE
   )
 
-  cat("\nPlugin 'rk.storytelling.survey' (v0.1.1) updated successfully without XML child > 1 errors.\n")
+  cat("\nPlugin 'rk.storytelling.survey' (v0.1.2) updated successfully without XML child > 1 errors.\n")
 })

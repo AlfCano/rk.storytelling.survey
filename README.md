@@ -65,11 +65,11 @@ This plugin is not yet on CRAN. To install it, use the `remotes` or `devtools` p
 2.  **Run the following command** in the R Console:
 
     ```R
-    # If you don't have devtools installed:
-    # install.packages("devtools")
+    # If you don't have remotes installed:
+    # install.packages("remotes")
     
     local({
-      require(devtools)
+      require(remotes)
       install_github("AlfCano/rk.storytelling.survey", force = TRUE)
     })
     ```
